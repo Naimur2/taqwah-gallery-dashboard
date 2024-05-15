@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mantine-TextInput-label,
+.mantine-Textarea-label,
+.mantine-TagsInput-label,
+.mantine-Select-label,
+.mantine-TimeInput-label,
+label {
+  margin-bottom: 0.25rem;
+}
+
+.mantine-Pagination-control[data-active]{
+  background-color: #363636;
+  color: #ffffff;
+}
+
+.mantine-Button-root {
+  padding-block: 0.8rem !important;
+  padding-inline: 2rem;
+  height: auto !important;
+}
+
+@layer base {
+  body {
+    @apply h-full w-full relative min-h-screen font-sans;
+  }
+}
