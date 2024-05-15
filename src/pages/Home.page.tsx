@@ -48,9 +48,12 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
 ];
 
 export default function CategoriesPage() {
-  const { data, isLoading } = useGetProjectsQuery(undefined, {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data, isLoading } = useGetProjectsQuery(
+    {},
+    {
+      refetchOnMountOrArgChange: true,
+    }
+  );
 
   const navigation = useNavigate();
 

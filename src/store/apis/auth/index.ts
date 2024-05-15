@@ -29,7 +29,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
           return error;
         }
       },
-      invalidatesTags: ['blogs', 'contacts', 'messages', 'singleBlog'],
+      invalidatesTags: ['categories', 'projects', 'subcategories', 'tags'],
     }),
     register: builder.mutation({
       query: (body) => ({
