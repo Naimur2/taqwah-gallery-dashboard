@@ -11,7 +11,7 @@
 
 export interface PostV1AuthLoginSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"664436ad494e5211cebb23e4","email":"example@xyz.abc","role":"user"}}} */
+  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"66445af89d523b0ea2406723","email":"example@xyz.abc","role":"user"}}} */
   data: {
     message: string;
     data: {
@@ -137,11 +137,12 @@ export type PostV1FileDeleteRequestBody = ((object & object) & object) & {
 
 export interface GetV1CategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"Category ID","name":"Category Name","totalFiles":0,"createdAt":"2024-05-15T04:14:37.536Z","updatedAt":"2024-05-15T04:14:37.536Z"}]} */
+  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"66445af89d523b0ea240672b","name":"Category Name","totalFiles":0,"createdAt":"2024-05-15T06:49:28.910Z","updatedAt":"2024-05-15T06:49:28.910Z"}]} */
   data: {
     message: string;
     data: {
-      _id?: string;
+      /** @format any */
+      _id?: any;
       name: string;
       /**
        * @format double
@@ -231,11 +232,12 @@ export type PostV1CategoriesAddRequestBody = ((object & object) & object) & {
 
 export interface GetV1SubcategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"Sub Category ID","name":"Sub Category Name","createdAt":"2024-05-15T04:14:37.492Z","updatedAt":"2024-05-15T04:14:37.492Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66445af89d523b0ea240672a","name":"Sub Category Name","createdAt":"2024-05-15T06:49:28.861Z","updatedAt":"2024-05-15T06:49:28.861Z"}]} */
   data: {
     message: string;
     data: {
-      _id?: string;
+      /** @format any */
+      _id?: any;
       name: string;
       /**
        * YYYY-MM-DDTHH:mm:ss.sssZ
@@ -329,9 +331,13 @@ export type GetV1ProjectsGetParameterLimit = string;
 
 export type GetV1ProjectsGetParameterSearch = string;
 
+export type GetV1ProjectsGetParameterCategory = string;
+
+export type GetV1ProjectsGetParameterSubCategory = string;
+
 export interface GetV1ProjectsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"Sub Category ID","title":"Sub Category Title","category":{"_id":"Sub Category ID","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-15T04:14:37.434Z","updatedAt":"2024-05-15T04:14:37.434Z"},"subCategory":{"_id":"Sub Category ID","name":"Sub Category Name","createdAt":"2024-05-15T04:14:37.434Z","updatedAt":"2024-05-15T04:14:37.434Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-15T04:14:37.434Z","updatedAt":"2024-05-15T04:14:37.434Z"}]} */
+  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"66445af89d523b0ea2406724","title":"Sub Category Title","category":{"_id":"66445af89d523b0ea2406725","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-15T06:49:28.798Z","updatedAt":"2024-05-15T06:49:28.798Z"},"subCategory":{"_id":"66445af89d523b0ea2406726","name":"Sub Category Name","createdAt":"2024-05-15T06:49:28.798Z","updatedAt":"2024-05-15T06:49:28.798Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-15T06:49:28.798Z","updatedAt":"2024-05-15T06:49:28.798Z"}]} */
   data: {
     message: string;
     meta: {
@@ -369,10 +375,12 @@ export interface GetV1ProjectsGetSuccessfulResponse {
       totalPages: number;
     };
     data: {
-      _id?: string;
+      /** @format any */
+      _id?: any;
       title: string;
       category: {
-        _id?: string;
+        /** @format any */
+        _id?: any;
         name: string;
         /**
          * @format double
@@ -394,7 +402,8 @@ export interface GetV1ProjectsGetSuccessfulResponse {
         updatedAt?: string;
       };
       subCategory: {
-        _id?: string;
+        /** @format any */
+        _id?: any;
         name: string;
         /**
          * YYYY-MM-DDTHH:mm:ss.sssZ
@@ -435,14 +444,16 @@ export type GetV1ProjectsGetIdParameterId = string;
 
 export interface GetV1ProjectsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","data":{"_id":"Sub Category ID","title":"Sub Category Title","category":{"_id":"Sub Category ID","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-15T04:14:37.449Z","updatedAt":"2024-05-15T04:14:37.449Z"},"subCategory":{"_id":"Sub Category ID","name":"Sub Category Name","createdAt":"2024-05-15T04:14:37.449Z","updatedAt":"2024-05-15T04:14:37.449Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-15T04:14:37.449Z","updatedAt":"2024-05-15T04:14:37.449Z"}} */
+  /** @example {"message":"Project Fetched Successfully","data":{"_id":"66445af89d523b0ea2406727","title":"Sub Category Title","category":{"_id":"66445af89d523b0ea2406728","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-15T06:49:28.813Z","updatedAt":"2024-05-15T06:49:28.813Z"},"subCategory":{"_id":"66445af89d523b0ea2406729","name":"Sub Category Name","createdAt":"2024-05-15T06:49:28.813Z","updatedAt":"2024-05-15T06:49:28.813Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-15T06:49:28.813Z","updatedAt":"2024-05-15T06:49:28.813Z"}} */
   data: {
     message: string;
     data: {
-      _id?: string;
+      /** @format any */
+      _id?: any;
       title: string;
       category: {
-        _id?: string;
+        /** @format any */
+        _id?: any;
         name: string;
         /**
          * @format double
@@ -464,7 +475,8 @@ export interface GetV1ProjectsGetIdSuccessfulResponse {
         updatedAt?: string;
       };
       subCategory: {
-        _id?: string;
+        /** @format any */
+        _id?: any;
         name: string;
         /**
          * YYYY-MM-DDTHH:mm:ss.sssZ
@@ -567,6 +579,22 @@ export type PostV1ProjectsAddRequestBody = ((object & object) & object) & {
   title: string;
   tags?: string[];
 };
+
+export interface GetV1ProjectsTagsSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Project Fetched Successfully","data":["Tag 1","Tag 2"]} */
+  data: {
+    message: string;
+    data: string[];
+  };
+}
+
+export interface GetV1ProjectsTagsErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
 
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, 'body' | 'bodyUsed'>;
@@ -1083,6 +1111,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         limit?: GetV1ProjectsGetParameterLimit;
         /** GET /v1/projects/get parameter */
         search?: GetV1ProjectsGetParameterSearch;
+        /** GET /v1/projects/get parameter */
+        category?: GetV1ProjectsGetParameterCategory;
+        /** GET /v1/projects/get parameter */
+        subCategory?: GetV1ProjectsGetParameterSubCategory;
       },
       params: RequestParams = {}
     ) =>
@@ -1177,6 +1209,24 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         body: data,
         secure: true,
         type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Projects
+     * @name GetV1ProjectsTags
+     * @summary Get Projects endpoint
+     * @request GET:/v1/projects/tags
+     * @secure
+     */
+    getV1ProjectsTags: (params: RequestParams = {}) =>
+      this.request<GetV1ProjectsTagsSuccessfulResponse, GetV1ProjectsTagsErrorResponse>({
+        path: `/v1/projects/tags`,
+        method: 'GET',
+        secure: true,
         format: 'json',
         ...params,
       }),

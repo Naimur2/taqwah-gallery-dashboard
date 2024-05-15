@@ -6,6 +6,7 @@ import { useGetCategoriesQuery } from '@/store/apis/categoris';
 import { useUploadFileMutation } from '@/store/apis/file';
 import {
   useAddProjectMutation,
+  useGetTagsQuery,
   useLazyGetSingleProjectsQuery,
   useUpdateProjectMutation,
 } from '@/store/apis/projects';
@@ -45,8 +46,9 @@ type TFormValues = z.infer<typeof validators>;
 export default function CreateProjectPage() {
   const [searchParams] = useSearchParams();
 
-  const { data: categoriesData } = useGetCategoriesQuery();
-  const { data: subCategoriesData } = useGetSubCategoriesQuery();
+  const { data: categoriesData, isLoading: categoryLoading } = useGetCategoriesQuery();
+  const { data: subCategoriesData, isLoading: subCategoryLoading } = useGetSubCategoriesQuery();
+  const { data: tagsData, isLoading: tagsLoading } = useGetTagsQuery();
 
   const [addProject, { isLoading: addProjectLoading }] = useAddProjectMutation();
   const [updateProject, { isLoading: updateProjectLoading }] = useUpdateProjectMutation();
@@ -75,6 +77,15 @@ export default function CreateProjectPage() {
         label: cat?.name ?? '',
       })),
     [subCategoriesData?.data?.data]
+  );
+
+  const tags = useMemo(
+    () =>
+      tagsData?.data?.data?.map((tag) => ({
+        value: tag ?? '',
+        label: tag ?? '',
+      })),
+    [tagsData?.data?.data]
   );
 
   const formHandler = useForm<TFormValues>({
@@ -109,7 +120,7 @@ export default function CreateProjectPage() {
         message: 'Project added successfully',
         color: 'green',
       });
-      navigate('/categories');
+      navigate('/');
     } catch (err) {
       const error = err as {
         data: PostV1CategoriesAddErrorResponse;
@@ -141,7 +152,7 @@ export default function CreateProjectPage() {
         message: 'Project updated successfully',
         color: 'green',
       });
-      navigate('/categories');
+      navigate('/');
     } catch (err) {
       const error = err as {
         data?: PostV1ProjectsAddErrorResponse;
@@ -155,7 +166,13 @@ export default function CreateProjectPage() {
   };
 
   const isLoading =
-    addProjectLoading || updateProjectLoading || getProjectByIdLoading || uploadFilesRes.isLoading;
+    addProjectLoading ||
+    updateProjectLoading ||
+    getProjectByIdLoading ||
+    uploadFilesRes.isLoading ||
+    categoryLoading ||
+    subCategoryLoading ||
+    tagsLoading;
 
   useEffect(() => {
     async function setInitialValues() {
@@ -173,13 +190,12 @@ export default function CreateProjectPage() {
           link: res.data.data.link,
         });
       } catch (error) {
-        console.log('error', error);
-        // notifications.show({
-        //   title: 'Error',
-        //   message: 'Project not found with given id',
-        //   color: 'red',
-        // });
-        // navigate('/');
+        notifications.show({
+          title: 'Error',
+          message: 'Project not found with given id',
+          color: 'red',
+        });
+        navigate('/');
       }
     }
 
@@ -247,7 +263,7 @@ export default function CreateProjectPage() {
         <TagsInput
           label="Press Enter to submit a tag"
           placeholder="Pick tag from list"
-          data={[]}
+          data={tags ?? []}
           error={formHandler.errors.tags && 'Tags is required'}
           maxTags={5}
           {...formHandler.getInputProps('tags')}

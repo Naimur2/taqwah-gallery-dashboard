@@ -3,6 +3,7 @@ import {
   DeleteV1ProjectsDeleteIdSuccessfulResponse,
   GetV1ProjectsGetIdSuccessfulResponse,
   GetV1ProjectsGetSuccessfulResponse,
+  GetV1ProjectsTagsSuccessfulResponse,
   PostV1ProjectsAddRequestBody,
   PostV1ProjectsAddSuccessfulResponse,
   PutV1ProjectsIdRequestBody,
@@ -48,6 +49,10 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
       query: (id) => `projects/get/${id}`,
       providesTags: ['projects'],
     }),
+    getTags: builder.query<GetV1ProjectsTagsSuccessfulResponse, void>({
+      query: () => 'projects/tags',
+      providesTags: ['projects'],
+    }),
     addProject: builder.mutation<PostV1ProjectsAddSuccessfulResponse, PostV1ProjectsAddRequestBody>(
       {
         query: (body) => ({
@@ -55,7 +60,7 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
           method: 'POST',
           body,
         }),
-        invalidatesTags: ['projects'],
+        invalidatesTags: ['projects', 'categories'],
       }
     ),
     updateProject: builder.mutation<
@@ -74,7 +79,7 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
         url: `projects/delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['projects'],
+      invalidatesTags: ['projects', 'categories'],
     }),
   }),
 });
@@ -87,4 +92,5 @@ export const {
   useDeleteProjectMutation,
   useGetSingleProjectsQuery,
   useLazyGetSingleProjectsQuery,
+  useGetTagsQuery,
 } = projectsApiSlice;

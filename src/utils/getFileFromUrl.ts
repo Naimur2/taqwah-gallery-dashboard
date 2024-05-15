@@ -6,10 +6,6 @@ async function getFileFromUrl(
   try {
     const response = await fetch(url, {
       method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'no-cors': 'true',
-      },
     });
     const data = await response.blob();
     return new File([data], name, { type: defaultType });
