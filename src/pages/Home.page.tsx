@@ -18,6 +18,22 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
     accessor: 'title',
   },
   {
+    label: 'Client Name',
+    accessor: 'client',
+  },
+  {
+    label: 'Figma Name',
+    accessor: 'figmaName',
+  },
+  {
+    label: 'brand Name',
+    accessor: 'brand',
+  },
+  {
+    label: 'Has Reviewed',
+    accessor: 'hasReviewed',
+  },
+  {
     label: 'Category',
     accessor: 'category.name',
   },
