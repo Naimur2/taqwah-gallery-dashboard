@@ -11,7 +11,7 @@
 
 export interface PostV1AuthLoginSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"66445b0b68373baf7797d4a8","email":"example@xyz.abc","role":"user"}}} */
+  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"66500f2105aad5900313a1f8","email":"example@xyz.abc","role":"user"}}} */
   data: {
     message: string;
     data: {
@@ -137,7 +137,7 @@ export type PostV1FileDeleteRequestBody = ((object & object) & object) & {
 
 export interface GetV1CategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"66445b0c68373baf7797d4b0","name":"Category Name","totalFiles":0,"createdAt":"2024-05-15T06:49:48.030Z","updatedAt":"2024-05-15T06:49:48.030Z"}]} */
+  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"66500f2205aad5900313a200","name":"Category Name","totalFiles":0,"createdAt":"2024-05-24T03:53:06.626Z","updatedAt":"2024-05-24T03:53:06.626Z"}]} */
   data: {
     message: string;
     data: {
@@ -167,6 +167,46 @@ export interface GetV1CategoriesGetSuccessfulResponse {
 }
 
 export interface GetV1CategoriesGetErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export type GetV1CategoriesGetIdParameterId = string;
+
+export interface GetV1CategoriesGetIdSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"66500f2205aad5900313a202","name":"Category Name","totalFiles":0,"createdAt":"2024-05-24T03:53:06.630Z","updatedAt":"2024-05-24T03:53:06.630Z"}} */
+  data: {
+    message: string;
+    data: {
+      /** @format any */
+      _id?: any;
+      name: string;
+      /**
+       * @format double
+       * @min 5e-324
+       * @exclusiveMin false
+       * @max 1.7976931348623157e+308
+       * @exclusiveMax false
+       */
+      totalFiles: number;
+      /**
+       * YYYY-MM-DDTHH:mm:ss.sssZ
+       * @format date-time
+       */
+      createdAt?: string;
+      /**
+       * YYYY-MM-DDTHH:mm:ss.sssZ
+       * @format date-time
+       */
+      updatedAt?: string;
+    };
+  };
+}
+
+export interface GetV1CategoriesGetIdErrorResponse {
   status: 'error';
   error: {
     message: string;
@@ -232,7 +272,7 @@ export type PostV1CategoriesAddRequestBody = ((object & object) & object) & {
 
 export interface GetV1SubcategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66445b0b68373baf7797d4af","name":"Sub Category Name","createdAt":"2024-05-15T06:49:47.975Z","updatedAt":"2024-05-15T06:49:47.975Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66500f2205aad5900313a1ff","name":"Sub Category Name","createdAt":"2024-05-24T03:53:06.563Z","updatedAt":"2024-05-24T03:53:06.563Z"}]} */
   data: {
     message: string;
     data: {
@@ -335,9 +375,11 @@ export type GetV1ProjectsGetParameterCategory = string;
 
 export type GetV1ProjectsGetParameterSubCategory = string;
 
+export type GetV1ProjectsGetParameterTags = string[];
+
 export interface GetV1ProjectsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"66445b0b68373baf7797d4a9","title":"Sub Category Title","category":{"_id":"66445b0b68373baf7797d4aa","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-15T06:49:47.910Z","updatedAt":"2024-05-15T06:49:47.910Z"},"subCategory":{"_id":"66445b0b68373baf7797d4ab","name":"Sub Category Name","createdAt":"2024-05-15T06:49:47.910Z","updatedAt":"2024-05-15T06:49:47.910Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-15T06:49:47.910Z","updatedAt":"2024-05-15T06:49:47.910Z"}]} */
+  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"66500f2205aad5900313a1f9","title":"Sub Category Title","category":{"_id":"66500f2205aad5900313a1fa","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-24T03:53:06.474Z","updatedAt":"2024-05-24T03:53:06.474Z"},"subCategory":{"_id":"66500f2205aad5900313a1fb","name":"Sub Category Name","createdAt":"2024-05-24T03:53:06.474Z","updatedAt":"2024-05-24T03:53:06.474Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-24T03:53:06.474Z","updatedAt":"2024-05-24T03:53:06.474Z","figmaName":"Figma Name","client":"Client Name","hasReviewed":"yes","brand":"Brand Name"}]} */
   data: {
     message: string;
     meta: {
@@ -429,6 +471,10 @@ export interface GetV1ProjectsGetSuccessfulResponse {
        * @format date-time
        */
       updatedAt?: string;
+      figmaName?: string;
+      client?: string;
+      hasReviewed?: 'yes' | 'no';
+      brand?: string;
     }[];
   };
 }
@@ -444,7 +490,7 @@ export type GetV1ProjectsGetIdParameterId = string;
 
 export interface GetV1ProjectsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","data":{"_id":"66445b0b68373baf7797d4ac","title":"Sub Category Title","category":{"_id":"66445b0b68373baf7797d4ad","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-15T06:49:47.926Z","updatedAt":"2024-05-15T06:49:47.926Z"},"subCategory":{"_id":"66445b0b68373baf7797d4ae","name":"Sub Category Name","createdAt":"2024-05-15T06:49:47.926Z","updatedAt":"2024-05-15T06:49:47.926Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-15T06:49:47.926Z","updatedAt":"2024-05-15T06:49:47.926Z"}} */
+  /** @example {"message":"Project Fetched Successfully","data":{"_id":"66500f2205aad5900313a1fc","title":"Sub Category Title","category":{"_id":"66500f2205aad5900313a1fd","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-24T03:53:06.488Z","updatedAt":"2024-05-24T03:53:06.488Z"},"subCategory":{"_id":"66500f2205aad5900313a1fe","name":"Sub Category Name","createdAt":"2024-05-24T03:53:06.488Z","updatedAt":"2024-05-24T03:53:06.488Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-24T03:53:06.488Z","updatedAt":"2024-05-24T03:53:06.488Z","figmaName":"Figma Name","client":"Client Name","hasReviewed":"yes","brand":"Brand Name"}} */
   data: {
     message: string;
     data: {
@@ -502,6 +548,10 @@ export interface GetV1ProjectsGetIdSuccessfulResponse {
        * @format date-time
        */
       updatedAt?: string;
+      figmaName?: string;
+      client?: string;
+      hasReviewed?: 'yes' | 'no';
+      brand?: string;
     };
   };
 }
@@ -531,12 +581,16 @@ export interface PutV1ProjectsIdErrorResponse {
 }
 
 export type PutV1ProjectsIdRequestBody = ((object & object) & object) & {
+  title: string;
   category: string;
   subCategory: string;
   image?: string;
   link?: string;
-  title: string;
   tags?: string[];
+  figmaName?: string;
+  client?: string;
+  hasReviewed?: 'yes' | 'no';
+  brand?: string;
 };
 
 export type DeleteV1ProjectsDeleteIdParameterId = string;
@@ -572,12 +626,16 @@ export interface PostV1ProjectsAddErrorResponse {
 }
 
 export type PostV1ProjectsAddRequestBody = ((object & object) & object) & {
+  title: string;
   category: string;
   subCategory: string;
   image?: string;
   link?: string;
-  title: string;
   tags?: string[];
+  figmaName?: string;
+  client?: string;
+  hasReviewed?: 'yes' | 'no';
+  brand?: string;
 };
 
 export interface GetV1ProjectsTagsSuccessfulResponse {
@@ -590,6 +648,29 @@ export interface GetV1ProjectsTagsSuccessfulResponse {
 }
 
 export interface GetV1ProjectsTagsErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export interface GetV1ProjectsTotalSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Project Fetched Successfully","data":1} */
+  data: {
+    message: string;
+    /**
+     * @format double
+     * @min 5e-324
+     * @exclusiveMin false
+     * @max 1.7976931348623157e+308
+     * @exclusiveMax false
+     */
+    data: number;
+  };
+}
+
+export interface GetV1ProjectsTotalErrorResponse {
   status: 'error';
   error: {
     message: string;
@@ -929,13 +1010,27 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @name GetV1CategoriesGet
      * @summary Get Categories endpoint
      * @request GET:/v1/categories/get
-     * @secure
      */
     getV1CategoriesGet: (params: RequestParams = {}) =>
       this.request<GetV1CategoriesGetSuccessfulResponse, GetV1CategoriesGetErrorResponse>({
         path: `/v1/categories/get`,
         method: 'GET',
-        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Categories
+     * @name GetV1CategoriesGetId
+     * @summary Get Categories endpoint
+     * @request GET:/v1/categories/get/{id}
+     */
+    getV1CategoriesGetId: (id: GetV1CategoriesGetIdParameterId, params: RequestParams = {}) =>
+      this.request<GetV1CategoriesGetIdSuccessfulResponse, GetV1CategoriesGetIdErrorResponse>({
+        path: `/v1/categories/get/${id}`,
+        method: 'GET',
         format: 'json',
         ...params,
       }),
@@ -1015,13 +1110,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @name GetV1SubcategoriesGet
      * @summary Get Sub Categories endpoint
      * @request GET:/v1/subcategories/get
-     * @secure
      */
     getV1SubcategoriesGet: (params: RequestParams = {}) =>
       this.request<GetV1SubcategoriesGetSuccessfulResponse, GetV1SubcategoriesGetErrorResponse>({
         path: `/v1/subcategories/get`,
         method: 'GET',
-        secure: true,
         format: 'json',
         ...params,
       }),
@@ -1101,7 +1194,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @name GetV1ProjectsGet
      * @summary Get Projects endpoint
      * @request GET:/v1/projects/get
-     * @secure
      */
     getV1ProjectsGet: (
       query?: {
@@ -1115,6 +1207,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         category?: GetV1ProjectsGetParameterCategory;
         /** GET /v1/projects/get parameter */
         subCategory?: GetV1ProjectsGetParameterSubCategory;
+        /** GET /v1/projects/get parameter */
+        tags?: GetV1ProjectsGetParameterTags;
       },
       params: RequestParams = {}
     ) =>
@@ -1122,7 +1216,6 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         path: `/v1/projects/get`,
         method: 'GET',
         query: query,
-        secure: true,
         format: 'json',
         ...params,
       }),
@@ -1134,13 +1227,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @name GetV1ProjectsGetId
      * @summary Get Single Projects endpoint
      * @request GET:/v1/projects/get/{id}
-     * @secure
      */
     getV1ProjectsGetId: (id: GetV1ProjectsGetIdParameterId, params: RequestParams = {}) =>
       this.request<GetV1ProjectsGetIdSuccessfulResponse, GetV1ProjectsGetIdErrorResponse>({
         path: `/v1/projects/get/${id}`,
         method: 'GET',
-        secure: true,
         format: 'json',
         ...params,
       }),
@@ -1220,13 +1311,27 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @name GetV1ProjectsTags
      * @summary Get Projects endpoint
      * @request GET:/v1/projects/tags
-     * @secure
      */
     getV1ProjectsTags: (params: RequestParams = {}) =>
       this.request<GetV1ProjectsTagsSuccessfulResponse, GetV1ProjectsTagsErrorResponse>({
         path: `/v1/projects/tags`,
         method: 'GET',
-        secure: true,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Projects
+     * @name GetV1ProjectsTotal
+     * @summary Get Total Projects Count endpoint
+     * @request GET:/v1/projects/total
+     */
+    getV1ProjectsTotal: (params: RequestParams = {}) =>
+      this.request<GetV1ProjectsTotalSuccessfulResponse, GetV1ProjectsTotalErrorResponse>({
+        path: `/v1/projects/total`,
+        method: 'GET',
         format: 'json',
         ...params,
       }),

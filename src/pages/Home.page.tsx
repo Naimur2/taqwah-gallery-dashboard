@@ -30,7 +30,7 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
     component: (row) => row?.tags?.join(', '),
   },
   {
-    label: 'Link',
+    label: 'View',
     component: (row) => (
       <a href={row.link} target="_blank" rel="noreferrer">
         <RiLink />

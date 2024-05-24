@@ -39,6 +39,10 @@ const validators = z.object({
   link: z.string().url(),
   category: z.string(),
   subCategory: z.string(),
+  figmaName: z.string(),
+  client: z.string(),
+  hasReviewed: z.enum(['yes', 'no']).optional(),
+  brand: z.string(),
 });
 
 type TFormValues = z.infer<typeof validators>;
@@ -96,6 +100,10 @@ export default function CreateProjectPage() {
       tags: [],
       image: undefined,
       link: '',
+      figmaName: '',
+      client: '',
+      hasReviewed: undefined,
+      brand: '',
     },
     validate: zodResolver(validators),
     validateInputOnBlur: true,
@@ -188,6 +196,10 @@ export default function CreateProjectPage() {
           tags: res.data.data.tags,
           image,
           link: res.data.data.link,
+          brand: res.data.data.brand,
+          client: res.data.data.client,
+          figmaName: res.data.data.figmaName,
+          hasReviewed: res.data.data.hasReviewed,
         });
       } catch (error) {
         notifications.show({
@@ -241,6 +253,40 @@ export default function CreateProjectPage() {
           error={formHandler.errors.title && 'Title is required'}
           {...formHandler.getInputProps('title')}
         />
+
+        <TextInput
+          label="Client Name"
+          placeholder="Enter Client Name"
+          error={formHandler.errors.client && 'Client is required'}
+          {...formHandler.getInputProps('client')}
+        />
+
+        <TextInput
+          label="Figma Name"
+          placeholder="Enter Figma Name"
+          error={formHandler.errors.client && 'Figma Name is required'}
+          {...formHandler.getInputProps('figmaName')}
+        />
+
+        <TextInput
+          label="Brand Name"
+          placeholder="Enter Brand Name"
+          error={formHandler.errors.brand && 'Brand is required'}
+          {...formHandler.getInputProps('brand')}
+        />
+
+        <Select
+          label="Has Reviewed"
+          placeholder="Select Has Reviewed"
+          data={[
+            { value: 'yes', label: 'Yes' },
+            { value: 'no', label: 'No' },
+          ]}
+          value={formHandler.values.hasReviewed}
+          error={formHandler.errors.hasReviewed && 'Has Reviewed is required'}
+          {...formHandler.getInputProps('hasReviewed')}
+        />
+
         <div className="grid lg:grid-cols-2 gap-4">
           <Select
             label="Category"
