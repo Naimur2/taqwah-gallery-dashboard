@@ -24,9 +24,7 @@ const validators = z.object({
     .string({
       description: 'Title is required',
     })
-    .min(3, {
-      message: 'Title should be at least 3 characters long',
-    }),
+    .optional(),
   tags: z
     .array(z.string())
     .min(1, {
@@ -39,10 +37,10 @@ const validators = z.object({
   link: z.string().url(),
   category: z.string(),
   subCategory: z.string(),
-  figmaName: z.string(),
-  client: z.string(),
+  figmaName: z.string().optional(),
+  client: z.string().optional(),
   hasReviewed: z.enum(['yes', 'no']).optional(),
-  brand: z.string(),
+  brand: z.string().optional(),
 });
 
 type TFormValues = z.infer<typeof validators>;
@@ -247,45 +245,37 @@ export default function CreateProjectPage() {
           {editable ? `Edit ${title}` : `Add New ${title}`}
         </h1>
 
-        <TextInput
-          label="Title"
-          placeholder="Enter Title"
-          error={formHandler.errors.title && 'Title is required'}
-          {...formHandler.getInputProps('title')}
-        />
+        <div className="grid lg:grid-cols-2 gap-4">
+          <TextInput
+            label="Title"
+            placeholder="Enter Title"
+            error={formHandler.errors.title && 'Title is required'}
+            {...formHandler.getInputProps('title')}
+          />
 
-        <TextInput
-          label="Client Name"
-          placeholder="Enter Client Name"
-          error={formHandler.errors.client && 'Client is required'}
-          {...formHandler.getInputProps('client')}
-        />
+          <TextInput
+            label="Client Name"
+            placeholder="Enter Client Name"
+            error={formHandler.errors.client && 'Client is required'}
+            {...formHandler.getInputProps('client')}
+          />
+        </div>
 
-        <TextInput
-          label="Figma Name"
-          placeholder="Enter Figma Name"
-          error={formHandler.errors.client && 'Figma Name is required'}
-          {...formHandler.getInputProps('figmaName')}
-        />
+        <div className="grid lg:grid-cols-2 gap-4">
+          <TextInput
+            label="Figma Name"
+            placeholder="Enter Figma Name"
+            error={formHandler.errors.client && 'Figma Name is required'}
+            {...formHandler.getInputProps('figmaName')}
+          />
 
-        <TextInput
-          label="Brand Name"
-          placeholder="Enter Brand Name"
-          error={formHandler.errors.brand && 'Brand is required'}
-          {...formHandler.getInputProps('brand')}
-        />
-
-        <Select
-          label="Has Reviewed"
-          placeholder="Select Has Reviewed"
-          data={[
-            { value: 'yes', label: 'Yes' },
-            { value: 'no', label: 'No' },
-          ]}
-          value={formHandler.values.hasReviewed}
-          error={formHandler.errors.hasReviewed && 'Has Reviewed is required'}
-          {...formHandler.getInputProps('hasReviewed')}
-        />
+          <TextInput
+            label="Brand Name"
+            placeholder="Enter Brand Name"
+            error={formHandler.errors.brand && 'Brand is required'}
+            {...formHandler.getInputProps('brand')}
+          />
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-4">
           <Select
@@ -306,14 +296,28 @@ export default function CreateProjectPage() {
           />
         </div>
 
-        <TagsInput
-          label="Press Enter to submit a tag"
-          placeholder="Pick tag from list"
-          data={tags ?? []}
-          error={formHandler.errors.tags && 'Tags is required'}
-          maxTags={5}
-          {...formHandler.getInputProps('tags')}
-        />
+        <div className="grid lg:grid-cols-2 gap-4">
+          <TagsInput
+            label="Press Enter to submit a tag"
+            placeholder="Pick tag from list"
+            data={tags ?? []}
+            error={formHandler.errors.tags && 'Tags is required'}
+            maxTags={5}
+            {...formHandler.getInputProps('tags')}
+          />
+
+          <Select
+            label="Has Reviewed"
+            placeholder="Select Has Reviewed"
+            data={[
+              { value: 'yes', label: 'Yes' },
+              { value: 'no', label: 'No' },
+            ]}
+            value={formHandler.values.hasReviewed}
+            error={formHandler.errors.hasReviewed && 'Has Reviewed is required'}
+            {...formHandler.getInputProps('hasReviewed')}
+          />
+        </div>
 
         <Text size="sm" className="font-semibold">
           Image
