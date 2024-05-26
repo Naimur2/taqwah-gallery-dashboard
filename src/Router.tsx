@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound.page';
 import { selectAuth } from './store/features/auth';
 import CategoriesPage from './pages/Categories.page';
 import SubCategoriesPage from './pages/SubCategories.page';
+import SettingsPage from './pages/Settings.page';
 
 const privateRouter = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const privateRouter = createBrowserRouter([
       {
         path: '/categories',
         element: <CategoriesPage />,
+      },
+      {
+        path: '/settings',
+        element: <SettingsPage />,
       },
       {
         path: '/subcategories',

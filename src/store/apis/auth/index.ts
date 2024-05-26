@@ -1,4 +1,9 @@
-import { PostV1AuthLoginRequestBody, PostV1AuthLoginSuccessfulResponse } from '@/store/api';
+import {
+  PostV1AuthLoginRequestBody,
+  PostV1AuthLoginSuccessfulResponse,
+  PutV1AuthPasswordChangeRequestBody,
+  PutV1AuthPasswordChangeSuccessfulResponse,
+} from '@/store/api';
 import { login } from '@/store/features/auth';
 import { apiSlice } from '../index';
 
@@ -38,7 +43,17 @@ export const authApiSlice = apiSlice.injectEndpoints({
         body,
       }),
     }),
+    changePassword: builder.mutation<
+      PutV1AuthPasswordChangeSuccessfulResponse,
+      PutV1AuthPasswordChangeRequestBody
+    >({
+      query: (body) => ({
+        url: 'auth/password/change',
+        method: 'PUT',
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = authApiSlice;
+export const { useLoginMutation, useRegisterMutation, useChangePasswordMutation } = authApiSlice;

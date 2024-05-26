@@ -48,6 +48,12 @@ const sidebarItems = [
     icon: <RiArticleLine size={20} />,
     iconActive: <RiArticleFill size={20} />,
   },
+  {
+    href: '/settings',
+    title: 'Settings',
+    icon: <RiSettings2Line size={20} />,
+    iconActive: <RiSettings2Fill size={20} />,
+  },
 ];
 
 export default function Sidebar({ className }: Readonly<Props>) {
