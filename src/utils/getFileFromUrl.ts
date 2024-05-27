@@ -1,8 +1,10 @@
+import { notifications } from '@mantine/notifications';
+
 async function getFileFromUrl(
   url: string,
   name: string,
   defaultType = 'image/jpeg'
-): Promise<File> {
+): Promise<File | undefined> {
   try {
     const response = await fetch(url, {
       method: 'GET',
@@ -10,7 +12,12 @@ async function getFileFromUrl(
     const data = await response.blob();
     return new File([data], name, { type: defaultType });
   } catch (error) {
-    throw new Error('Failed to fetch file from url');
+    notifications.show({
+      title: 'Error',
+      message: 'Failed to fetch file from url',
+      color: 'red',
+    });
+    return undefined;
   }
 }
 
