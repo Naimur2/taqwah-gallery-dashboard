@@ -4,7 +4,6 @@ import ProjectActions, { TProjectColumn } from '@/components/ProjectActions';
 import TableComponent, { TTable } from '@/components/Table';
 import { useGetProjectsQuery } from '@/store/apis/projects';
 import { Button, Text } from '@mantine/core';
-import dayjs from 'dayjs';
 import { RiLink } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,46 +15,59 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
   {
     label: 'Title',
     accessor: 'title',
-  },
-  {
-    label: 'Client Name',
-    accessor: 'client',
+    emptyValue: 'Not Available',
   },
   {
     label: 'Figma Name',
     accessor: 'figmaName',
+    emptyValue: 'Not Available',
   },
   {
-    label: 'brand Name',
-    accessor: 'brand',
-  },
-  {
-    label: 'Has Reviewed',
-    accessor: 'hasReviewed',
-  },
-  {
-    label: 'Category',
-    accessor: 'category.name',
-  },
-  {
-    label: 'Sub Category',
+    label: 'Project Type',
     accessor: 'subCategory.name',
+    emptyValue: 'Not Available',
+  },
+  {
+    label: 'Industry',
+    accessor: 'category.name',
+    emptyValue: 'Not Available',
   },
   {
     label: 'Tags',
     component: (row) => row?.tags?.join(', '),
   },
   {
-    label: 'View',
-    component: (row) => (
-      <a href={row.link} target="_blank" rel="noreferrer">
-        <RiLink />
-      </a>
-    ),
+    label: 'Figma Link',
+    component: (row) => {
+      if (row.link) {
+        return (
+          <a href={row.link} target="_blank" rel="noreferrer">
+            <RiLink />
+          </a>
+        );
+      }
+
+      return 'Not Available';
+    },
   },
   {
-    label: 'Created At',
-    component: (row) => dayjs(row.createdAt).format('DD MMM YYYY'),
+    label: 'Project View Link',
+    component: (row) => {
+      if (row.figmaLink) {
+        return (
+          <a href={row.figmaLink} target="_blank" rel="noreferrer">
+            <RiLink />
+          </a>
+        );
+      }
+
+      return 'Not Available';
+    },
+  },
+  {
+    label: 'Review',
+    accessor: 'hasReviewed',
+    emptyValue: 'Not Available',
   },
   {
     label: 'Action',

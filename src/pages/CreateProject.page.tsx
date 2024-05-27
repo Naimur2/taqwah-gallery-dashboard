@@ -38,9 +38,8 @@ const validators = z.object({
   category: z.string(),
   subCategory: z.string(),
   figmaName: z.string().optional(),
-  client: z.string().optional(),
   hasReviewed: z.enum(['yes', 'no']).optional(),
-  brand: z.string().optional(),
+  figmaLink: z.string().optional(),
 });
 
 type TFormValues = z.infer<typeof validators>;
@@ -99,9 +98,8 @@ export default function CreateProjectPage() {
       image: undefined,
       link: '',
       figmaName: '',
-      client: '',
       hasReviewed: undefined,
-      brand: '',
+      figmaLink: '',
     },
     validate: zodResolver(validators),
     validateInputOnBlur: true,
@@ -194,10 +192,9 @@ export default function CreateProjectPage() {
           tags: res.data.data.tags,
           image,
           link: res.data.data.link,
-          brand: res.data.data.brand,
-          client: res.data.data.client,
           figmaName: res.data.data.figmaName,
           hasReviewed: res.data.data.hasReviewed,
+          figmaLink: res.data.data.figmaLink,
         });
       } catch (error) {
         notifications.show({
@@ -245,53 +242,44 @@ export default function CreateProjectPage() {
           {editable ? `Edit ${title}` : `Add New ${title}`}
         </h1>
 
-        <div className="grid lg:grid-cols-2 gap-4">
-          <TextInput
-            label="Title"
-            placeholder="Enter Title"
-            error={formHandler.errors.title && 'Title is required'}
-            {...formHandler.getInputProps('title')}
-          />
-
-          <TextInput
-            label="Client Name"
-            placeholder="Enter Client Name"
-            error={formHandler.errors.client && 'Client is required'}
-            {...formHandler.getInputProps('client')}
-          />
-        </div>
+        <TextInput
+          label="Title"
+          placeholder="Enter Title"
+          error={formHandler.errors.title && 'Title is required'}
+          {...formHandler.getInputProps('title')}
+        />
 
         <div className="grid lg:grid-cols-2 gap-4">
           <TextInput
             label="Figma Name"
             placeholder="Enter Figma Name"
-            error={formHandler.errors.client && 'Figma Name is required'}
+            error={formHandler.errors.figmaName && 'Figma Name is required'}
             {...formHandler.getInputProps('figmaName')}
           />
 
           <TextInput
-            label="Brand Name"
-            placeholder="Enter Brand Name"
-            error={formHandler.errors.brand && 'Brand is required'}
-            {...formHandler.getInputProps('brand')}
+            label="Figma Link"
+            placeholder="Enter Figma Link"
+            error={formHandler.errors.figmaLink && 'Figma Link is required'}
+            {...formHandler.getInputProps('figmaLink')}
           />
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4">
           <Select
-            label="Category"
-            placeholder="Select Category"
+            label="Industry"
+            placeholder="Select Industry"
             data={categories ?? []}
             value={formHandler.values.category}
-            error={formHandler.errors.category && 'Category is required'}
+            error={formHandler.errors.category && 'Industry is required'}
             {...formHandler.getInputProps('category')}
           />
           <Select
-            label="Sub Category"
-            placeholder="Select Sub Category"
+            label="Project Type"
+            placeholder="Select Project Type"
             data={subCategories ?? []}
             value={formHandler.values.subCategory}
-            error={formHandler.errors.subCategory && 'Sub Category is required'}
+            error={formHandler.errors.subCategory && 'Project Type is required'}
             {...formHandler.getInputProps('subCategory')}
           />
         </div>
@@ -307,7 +295,7 @@ export default function CreateProjectPage() {
           />
 
           <Select
-            label="Has Reviewed"
+            label="Review"
             placeholder="Select Has Reviewed"
             data={[
               { value: 'yes', label: 'Yes' },

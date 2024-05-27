@@ -11,7 +11,7 @@
 
 export interface PostV1AuthLoginSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"6652d6639f82577c8cec6136","email":"example@xyz.abc","role":"user"}}} */
+  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"6654207b8067057338c82266","email":"example@xyz.abc","role":"user"}}} */
   data: {
     message: string;
     data: {
@@ -137,7 +137,7 @@ export type PostV1FileDeleteRequestBody = ((object & object) & object) & {
 
 export interface GetV1CategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"6652d6649f82577c8cec613e","name":"Category Name","totalFiles":0,"createdAt":"2024-05-26T06:27:48.661Z","updatedAt":"2024-05-26T06:27:48.661Z"}]} */
+  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"6654207c8067057338c8226e","name":"Category Name","totalFiles":0,"createdAt":"2024-05-27T05:56:12.239Z","updatedAt":"2024-05-27T05:56:12.239Z"}]} */
   data: {
     message: string;
     data: {
@@ -177,7 +177,7 @@ export type GetV1CategoriesGetIdParameterId = string;
 
 export interface GetV1CategoriesGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"6652d6649f82577c8cec6140","name":"Category Name","totalFiles":0,"createdAt":"2024-05-26T06:27:48.667Z","updatedAt":"2024-05-26T06:27:48.667Z"}} */
+  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"6654207c8067057338c82270","name":"Category Name","totalFiles":0,"createdAt":"2024-05-27T05:56:12.243Z","updatedAt":"2024-05-27T05:56:12.243Z"}} */
   data: {
     message: string;
     data: {
@@ -272,7 +272,7 @@ export type PostV1CategoriesAddRequestBody = ((object & object) & object) & {
 
 export interface GetV1SubcategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"6652d6649f82577c8cec613d","name":"Sub Category Name","createdAt":"2024-05-26T06:27:48.602Z","updatedAt":"2024-05-26T06:27:48.602Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"6654207c8067057338c8226d","name":"Sub Category Name","createdAt":"2024-05-27T05:56:12.186Z","updatedAt":"2024-05-27T05:56:12.186Z"}]} */
   data: {
     message: string;
     data: {
@@ -379,7 +379,7 @@ export type GetV1ProjectsGetParameterTags = string[];
 
 export interface GetV1ProjectsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"6652d6649f82577c8cec6137","title":"Sub Category Title","category":{"_id":"6652d6649f82577c8cec6138","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-26T06:27:48.512Z","updatedAt":"2024-05-26T06:27:48.512Z"},"subCategory":{"_id":"6652d6649f82577c8cec6139","name":"Sub Category Name","createdAt":"2024-05-26T06:27:48.512Z","updatedAt":"2024-05-26T06:27:48.512Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-26T06:27:48.512Z","updatedAt":"2024-05-26T06:27:48.512Z","figmaName":"Figma Name","client":"Client Name","hasReviewed":"yes","brand":"Brand Name"}]} */
+  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"6654207c8067057338c82267","title":"Sub Category Title","category":{"_id":"6654207c8067057338c82268","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-27T05:56:12.121Z","updatedAt":"2024-05-27T05:56:12.121Z"},"subCategory":{"_id":"6654207c8067057338c82269","name":"Sub Category Name","createdAt":"2024-05-27T05:56:12.121Z","updatedAt":"2024-05-27T05:56:12.121Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-27T05:56:12.121Z","updatedAt":"2024-05-27T05:56:12.121Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
   data: {
     message: string;
     meta: {
@@ -472,9 +472,8 @@ export interface GetV1ProjectsGetSuccessfulResponse {
        */
       updatedAt?: string;
       figmaName?: string;
-      client?: string;
       hasReviewed?: 'yes' | 'no';
-      brand?: string;
+      figmaLink?: string;
     }[];
   };
 }
@@ -490,7 +489,7 @@ export type GetV1ProjectsGetIdParameterId = string;
 
 export interface GetV1ProjectsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","data":{"_id":"6652d6649f82577c8cec613a","title":"Sub Category Title","category":{"_id":"6652d6649f82577c8cec613b","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-26T06:27:48.527Z","updatedAt":"2024-05-26T06:27:48.527Z"},"subCategory":{"_id":"6652d6649f82577c8cec613c","name":"Sub Category Name","createdAt":"2024-05-26T06:27:48.527Z","updatedAt":"2024-05-26T06:27:48.527Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-26T06:27:48.527Z","updatedAt":"2024-05-26T06:27:48.527Z","figmaName":"Figma Name","client":"Client Name","hasReviewed":"yes","brand":"Brand Name"}} */
+  /** @example {"message":"Project Fetched Successfully","data":{"_id":"6654207c8067057338c8226a","title":"Sub Category Title","category":{"_id":"6654207c8067057338c8226b","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-27T05:56:12.134Z","updatedAt":"2024-05-27T05:56:12.134Z"},"subCategory":{"_id":"6654207c8067057338c8226c","name":"Sub Category Name","createdAt":"2024-05-27T05:56:12.134Z","updatedAt":"2024-05-27T05:56:12.134Z"},"image":"Image URL","link":"Project Link","tags":["Tag 1","Tag 2"],"createdAt":"2024-05-27T05:56:12.134Z","updatedAt":"2024-05-27T05:56:12.134Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
   data: {
     message: string;
     data: {
@@ -549,9 +548,8 @@ export interface GetV1ProjectsGetIdSuccessfulResponse {
        */
       updatedAt?: string;
       figmaName?: string;
-      client?: string;
       hasReviewed?: 'yes' | 'no';
-      brand?: string;
+      figmaLink?: string;
     };
   };
 }
@@ -588,9 +586,8 @@ export type PutV1ProjectsIdRequestBody = ((object & object) & object) & {
   link?: string;
   tags?: string[];
   figmaName?: string;
-  client?: string;
   hasReviewed?: 'yes' | 'no';
-  brand?: string;
+  figmaLink?: string;
 };
 
 export type DeleteV1ProjectsDeleteIdParameterId = string;
@@ -633,9 +630,8 @@ export type PostV1ProjectsAddRequestBody = ((object & object) & object) & {
   link?: string;
   tags?: string[];
   figmaName?: string;
-  client?: string;
   hasReviewed?: 'yes' | 'no';
-  brand?: string;
+  figmaLink?: string;
 };
 
 export interface GetV1ProjectsTagsSuccessfulResponse {
