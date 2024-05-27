@@ -42,7 +42,7 @@ export const categoriesApiSlice = apiSlice.injectEndpoints({
         url: `categories/delete/${id}`,
         method: 'DELETE',
       }),
-      invalidatesTags: ['categories'],
+      invalidatesTags: ['categories', 'projects'],
     }),
   }),
 });
