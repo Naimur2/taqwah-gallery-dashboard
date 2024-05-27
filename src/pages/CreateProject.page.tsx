@@ -118,6 +118,9 @@ export default function CreateProjectPage() {
         tags: values.tags,
         image: img?.data?.data?.[0]?.url,
         link: values.link,
+        figmaName: values.figmaName,
+        hasReviewed: values.hasReviewed,
+        figmaLink: values.figmaLink,
       }).unwrap();
       notifications.show({
         title: 'Success',
