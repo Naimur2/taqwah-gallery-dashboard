@@ -293,8 +293,8 @@ export default function CreateProjectPage() {
 
         <div className="grid lg:grid-cols-2 gap-4">
           <TagsInput
-            label="Press Enter to submit a tag"
-            placeholder="Pick tag from list"
+            label="Tag"
+            placeholder="Press Enter to submit a tag"
             data={tags ?? []}
             error={formHandler.errors.tags && 'Tags is required'}
             maxTags={5}
