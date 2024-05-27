@@ -152,6 +152,10 @@ export default function CreateProjectPage() {
         subCategory: values.subCategory,
         tags: values.tags,
         image: img?.data?.data?.[0]?.url,
+        link: values.link,
+        figmaName: values.figmaName,
+        hasReviewed: values.hasReviewed,
+        figmaLink: values.figmaLink,
         id,
       }).unwrap();
       notifications.show({
@@ -334,7 +338,7 @@ export default function CreateProjectPage() {
         }
 
         <TextInput
-          label="Link"
+          label="Project view link"
           placeholder="Enter Link"
           error={formHandler.errors.link && 'Link is required'}
           {...formHandler.getInputProps('link')}
