@@ -34,7 +34,7 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
   },
   {
     label: 'Tags',
-    component: (row) => row?.tags?.join(', '),
+    component: (row) => row?.tags,
   },
   {
     label: 'Figma Link',

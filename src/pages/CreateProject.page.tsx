@@ -25,14 +25,7 @@ const validators = z.object({
       description: 'Title is required',
     })
     .optional(),
-  tags: z
-    .array(z.string())
-    .min(1, {
-      message: 'Please select at least one tag',
-    })
-    .max(5, {
-      message: 'You can select maximum 5 tags',
-    }),
+  tags: z.string(),
   image: z.instanceof(File).optional(),
   link: z.string().url(),
   category: z.string(),
@@ -80,21 +73,12 @@ export default function CreateProjectPage() {
     [subCategoriesData?.data?.data]
   );
 
-  const tags = useMemo(
-    () =>
-      tagsData?.data?.data?.map((tag) => ({
-        value: tag ?? '',
-        label: tag ?? '',
-      })),
-    [tagsData?.data?.data]
-  );
-
   const formHandler = useForm<TFormValues>({
     initialValues: {
       title: '',
       category: '',
       subCategory: '',
-      tags: [],
+      tags: '',
       image: undefined,
       link: '',
       figmaName: '',
@@ -292,12 +276,10 @@ export default function CreateProjectPage() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-4">
-          <TagsInput
+          <TextInput
             label="Tag"
             placeholder="Press Enter to submit a tag"
-            data={tags ?? []}
             error={formHandler.errors.tags && 'Tags is required'}
-            maxTags={5}
             {...formHandler.getInputProps('tags')}
           />
 
