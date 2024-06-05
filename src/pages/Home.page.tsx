@@ -37,7 +37,7 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
     component: (row) => row?.tags,
   },
   {
-    label: 'Figma Link',
+    label: 'Project View Link',
     component: (row) => {
       if (row.link) {
         return (
@@ -51,7 +51,7 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
     },
   },
   {
-    label: 'Project View Link',
+    label: 'Figma Link',
     component: (row) => {
       if (row.figmaLink) {
         return (
