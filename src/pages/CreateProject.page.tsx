@@ -31,7 +31,7 @@ const validators = z.object({
   category: z.string(),
   subCategory: z.string(),
   figmaName: z.string().optional(),
-  hasReviewed: z.enum(['yes', 'no']).optional(),
+  // hasReviewed: z.enum(['yes', 'no']).optional(),
   figmaLink: z.string().optional(),
 });
 
@@ -81,7 +81,7 @@ export default function CreateProjectPage() {
       image: undefined,
       link: '',
       figmaName: '',
-      hasReviewed: undefined,
+      // hasReviewed: undefined,
       figmaLink: '',
     },
     validate: zodResolver(validators),
@@ -101,7 +101,7 @@ export default function CreateProjectPage() {
         image: img?.data?.data?.[0]?.url,
         link: values.link,
         figmaName: values.figmaName,
-        hasReviewed: values.hasReviewed,
+        // hasReviewed: values.hasReviewed,
         figmaLink: values.figmaLink,
       }).unwrap();
       notifications.show({
@@ -136,7 +136,7 @@ export default function CreateProjectPage() {
         image: img?.data?.data?.[0]?.url,
         link: values.link,
         figmaName: values.figmaName,
-        hasReviewed: values.hasReviewed,
+        // hasReviewed: values.hasReviewed,
         figmaLink: values.figmaLink,
         id,
       }).unwrap();
@@ -181,7 +181,7 @@ export default function CreateProjectPage() {
           image,
           link: res.data.data.link,
           figmaName: res.data.data.figmaName,
-          hasReviewed: res.data.data.hasReviewed,
+          // hasReviewed: res.data.data.hasReviewed,
           figmaLink: res.data.data.figmaLink,
         });
       } catch (error) {
@@ -280,7 +280,7 @@ export default function CreateProjectPage() {
             {...formHandler.getInputProps('tags')}
           />
 
-          <Select
+          {/* <Select
             label="Review"
             placeholder="Select Has Reviewed"
             data={[
@@ -290,7 +290,7 @@ export default function CreateProjectPage() {
             value={formHandler.values.hasReviewed}
             error={formHandler.errors.hasReviewed && 'Has Reviewed is required'}
             {...formHandler.getInputProps('hasReviewed')}
-          />
+          /> */}
         </div>
 
         <Text size="sm" className="font-semibold">

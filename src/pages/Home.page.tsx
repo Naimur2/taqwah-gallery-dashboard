@@ -64,11 +64,11 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
       return 'Not Available';
     },
   },
-  {
-    label: 'Review',
-    accessor: 'hasReviewed',
-    emptyValue: 'Not Available',
-  },
+  // {
+  //   label: 'Review',
+  //   accessor: 'hasReviewed',
+  //   emptyValue: 'Not Available',
+  // },
   {
     label: 'Action',
     component: (row) => <ProjectActions {...row} />,
