@@ -272,15 +272,16 @@ export default function CreateProjectPage() {
           />
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-4">
-          <TextInput
-            label="Tag"
-            placeholder="Enter a tag"
-            error={formHandler.errors.tags && 'Tags is required'}
-            {...formHandler.getInputProps('tags')}
-          />
+        <TextInput
+          label="Tag"
+          placeholder="Enter a tag"
+          error={formHandler.errors.tags && 'Tags is required'}
+          {...formHandler.getInputProps('tags')}
+        />
 
-          {/* <Select
+        {/* <div className="grid lg:grid-cols-2 gap-4">
+
+          <Select
             label="Review"
             placeholder="Select Has Reviewed"
             data={[
@@ -290,8 +291,8 @@ export default function CreateProjectPage() {
             value={formHandler.values.hasReviewed}
             error={formHandler.errors.hasReviewed && 'Has Reviewed is required'}
             {...formHandler.getInputProps('hasReviewed')}
-          /> */}
-        </div>
+          />
+        </div> */}
 
         <Text size="sm" className="font-semibold">
           Image
