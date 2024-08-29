@@ -20,11 +20,11 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 import { z } from 'zod';
 
 const validators = z.object({
-  title: z
-    .string({
-      description: 'Title is required',
-    })
-    .optional(),
+  // title: z
+  //   .string({
+  //     description: 'Title is required',
+  //   })
+  //   .optional(),
   tags: z.string(),
   image: z.instanceof(File).optional(),
   link: z.string().url(),
@@ -75,7 +75,6 @@ export default function CreateProjectPage() {
 
   const formHandler = useForm<TFormValues>({
     initialValues: {
-      title: '',
       category: '',
       subCategory: '',
       tags: '',
@@ -96,7 +95,6 @@ export default function CreateProjectPage() {
       formData.append('files', values.image as File);
       const img = await uploadFiles(formData).unwrap();
       await addProject({
-        title: values.title,
         category: values.category,
         subCategory: values.subCategory,
         tags: values.tags,
@@ -131,7 +129,7 @@ export default function CreateProjectPage() {
       const img = await uploadFiles(formData).unwrap();
 
       await updateProject({
-        title: values.title,
+        // title: values.title,
         category: values.category,
         subCategory: values.subCategory,
         tags: values.tags,
@@ -177,7 +175,6 @@ export default function CreateProjectPage() {
           ? await getFileFromUrl(res.data.data.image, res?.data?.data?.title ?? 'image')
           : undefined;
         formHandler.setValues({
-          title: res.data.data.title,
           category: res.data.data.category._id,
           subCategory: res.data.data.subCategory._id,
           tags: res.data.data.tags,
@@ -233,18 +230,18 @@ export default function CreateProjectPage() {
           {editable ? `Edit ${title}` : `Add New ${title}`}
         </h1>
 
-        <TextInput
+        {/* <TextInput
           label="Title"
           placeholder="Enter Title"
           error={formHandler.errors.title && 'Title is required'}
           {...formHandler.getInputProps('title')}
-        />
+        /> */}
 
         <div className="grid lg:grid-cols-2 gap-4">
           <TextInput
-            label="Figma Name"
-            placeholder="Enter Figma Name"
-            error={formHandler.errors.figmaName && 'Figma Name is required'}
+            label="Title"
+            placeholder="Enter Title"
+            error={formHandler.errors.figmaName && 'Title is required'}
             {...formHandler.getInputProps('figmaName')}
           />
 

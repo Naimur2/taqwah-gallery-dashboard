@@ -12,13 +12,13 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
     label: 'Image',
     component: (row) => <img src={row.image} alt={row.title} className="size-10 object-cover" />,
   },
+  // {
+  //   label: 'Title',
+  //   accessor: 'title',
+  //   emptyValue: 'Not Available',
+  // },
   {
     label: 'Title',
-    accessor: 'title',
-    emptyValue: 'Not Available',
-  },
-  {
-    label: 'Figma Name',
     accessor: 'figmaName',
     emptyValue: 'Not Available',
   },
