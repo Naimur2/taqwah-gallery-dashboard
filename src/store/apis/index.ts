@@ -28,7 +28,7 @@ const baseQueryWithReAuth = async (args: any, api: any, extraOptions: any): Prom
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: baseQueryWithReAuth,
-  tagTypes: ['projects', 'categories', 'subcategories', 'tags'],
+  tagTypes: ['projects', 'categories', 'subcategories', 'tags', 'reviews'],
   endpoints: () => ({}),
 });
 

@@ -5,6 +5,8 @@ import {
   RiArticleLine,
   RiChatQuoteFill,
   RiChatQuoteLine,
+  RiChatVoiceFill,
+  RiChatVoiceLine,
   RiFileList2Fill,
   RiFileList2Line,
   RiHome6Fill,
@@ -19,6 +21,8 @@ import {
   RiStarSLine,
   RiUser3Fill,
   RiUser3Line,
+  RiVideoChatFill,
+  RiVideoChatLine,
 } from 'react-icons/ri';
 import cn from '@/utils/cn';
 import SideNavItem from './components/SideNavItem';
@@ -47,6 +51,18 @@ const sidebarItems = [
     title: 'Sub Categories',
     icon: <RiArticleLine size={20} />,
     iconActive: <RiArticleFill size={20} />,
+  },
+  {
+    href: '/text-reviews',
+    title: 'Written Reviews',
+    icon: <RiChatVoiceLine size={20} />,
+    iconActive: <RiChatVoiceFill size={20} />,
+  },
+  {
+    href: '/video-reviews',
+    title: 'Video Reviews',
+    icon: <RiVideoChatLine size={20} />,
+    iconActive: <RiVideoChatFill size={20} />,
   },
   {
     href: '/settings',

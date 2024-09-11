@@ -2,14 +2,16 @@ import { useSelector } from 'react-redux';
 import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 import BaseLayout from './layouts';
 
+import CategoriesPage from './pages/Categories.page';
 import CreateBlog from './pages/CreateProject.page';
 import HomePage from './pages/Home.page';
 import LoginPage from './pages/Login.page';
 import NotFound from './pages/NotFound.page';
-import { selectAuth } from './store/features/auth';
-import CategoriesPage from './pages/Categories.page';
-import SubCategoriesPage from './pages/SubCategories.page';
+import ReviewManagementPage from './pages/ReviewManagement.page';
+import ReviewsPage from './pages/Reviews.page';
 import SettingsPage from './pages/Settings.page';
+import SubCategoriesPage from './pages/SubCategories.page';
+import { selectAuth } from './store/features/auth';
 
 const privateRouter = createBrowserRouter([
   {
@@ -35,6 +37,18 @@ const privateRouter = createBrowserRouter([
       {
         path: '/subcategories',
         element: <SubCategoriesPage />,
+      },
+      {
+        path: '/text-reviews',
+        element: <ReviewsPage type="text" />,
+      },
+      {
+        path: '/video-reviews',
+        element: <ReviewsPage type="video" />,
+      },
+      {
+        path: '/manage-reviews',
+        element: <ReviewManagementPage />,
       },
     ],
   },

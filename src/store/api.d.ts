@@ -10,8 +10,8 @@
  */
 
 export interface PostV1AuthLoginSuccessfulResponse {
-  status: "success";
-  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"6655fa170f7cdd656c13bc2b","email":"example@xyz.abc","role":"user"}}} */
+  status: 'success';
+  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"66e1c94d05c488e35b75d7aa","email":"example@xyz.abc","role":"user"}}} */
   data: {
     message: string;
     data: {
@@ -21,14 +21,14 @@ export interface PostV1AuthLoginSuccessfulResponse {
         /** @format any */
         _id: any;
         email: string;
-        role?: "admin" | "user";
+        role?: 'admin' | 'user';
       };
     };
   };
 }
 
 export interface PostV1AuthLoginErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -42,7 +42,7 @@ export type PostV1AuthLoginRequestBody = ((object & object) & object) & {
 };
 
 export interface PostV1AuthRegisterSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"User Created Successfully, Please verify your email"} */
   data: {
     message: string;
@@ -50,7 +50,7 @@ export interface PostV1AuthRegisterSuccessfulResponse {
 }
 
 export interface PostV1AuthRegisterErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -68,7 +68,7 @@ export type PostV1AuthRegisterRequestBody = ((object & object) & object) & {
 };
 
 export interface PutV1AuthPasswordChangeSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Password Changed Successfully"} */
   data: {
     message: string;
@@ -76,7 +76,7 @@ export interface PutV1AuthPasswordChangeSuccessfulResponse {
 }
 
 export interface PutV1AuthPasswordChangeErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -94,7 +94,7 @@ export type PutV1AuthPasswordChangeRequestBody = ((object & object) & object) & 
 };
 
 export interface PostV1FileUploadSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"File Added Successfully","data":[{"url":"https://ppfitness.s3.amazonaws.com/Screenshot%202024-01-13%20185527.png"}]} */
   data: {
     message: string;
@@ -105,7 +105,7 @@ export interface PostV1FileUploadSuccessfulResponse {
 }
 
 export interface PostV1FileUploadErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -116,7 +116,7 @@ export type PostV1FileUploadRequestBody = ((object & object) & object) & {
 };
 
 export interface PostV1FileDeleteSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"File Added Successfully"} */
   data: {
     message: string;
@@ -124,7 +124,7 @@ export interface PostV1FileDeleteSuccessfulResponse {
 }
 
 export interface PostV1FileDeleteErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -136,8 +136,8 @@ export type PostV1FileDeleteRequestBody = ((object & object) & object) & {
 };
 
 export interface GetV1CategoriesGetSuccessfulResponse {
-  status: "success";
-  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"6655fa180f7cdd656c13bc33","name":"Category Name","totalFiles":0,"createdAt":"2024-05-28T15:36:56.174Z","updatedAt":"2024-05-28T15:36:56.174Z"}]} */
+  status: 'success';
+  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"66e1c94e05c488e35b75d7b2","name":"Category Name","totalFiles":0,"createdAt":"2024-09-11T16:46:06.380Z","updatedAt":"2024-09-11T16:46:06.380Z"}]} */
   data: {
     message: string;
     data: {
@@ -167,7 +167,7 @@ export interface GetV1CategoriesGetSuccessfulResponse {
 }
 
 export interface GetV1CategoriesGetErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -176,8 +176,8 @@ export interface GetV1CategoriesGetErrorResponse {
 export type GetV1CategoriesGetIdParameterId = string;
 
 export interface GetV1CategoriesGetIdSuccessfulResponse {
-  status: "success";
-  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"6655fa180f7cdd656c13bc35","name":"Category Name","totalFiles":0,"createdAt":"2024-05-28T15:36:56.178Z","updatedAt":"2024-05-28T15:36:56.178Z"}} */
+  status: 'success';
+  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"66e1c94e05c488e35b75d7b4","name":"Category Name","totalFiles":0,"createdAt":"2024-09-11T16:46:06.386Z","updatedAt":"2024-09-11T16:46:06.386Z"}} */
   data: {
     message: string;
     data: {
@@ -207,7 +207,7 @@ export interface GetV1CategoriesGetIdSuccessfulResponse {
 }
 
 export interface GetV1CategoriesGetIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -216,7 +216,7 @@ export interface GetV1CategoriesGetIdErrorResponse {
 export type PutV1CategoriesIdParameterId = string;
 
 export interface PutV1CategoriesIdSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Category Added Successfully"} */
   data: {
     message: string;
@@ -224,7 +224,7 @@ export interface PutV1CategoriesIdSuccessfulResponse {
 }
 
 export interface PutV1CategoriesIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -237,7 +237,7 @@ export type PutV1CategoriesIdRequestBody = ((object & object) & object) & {
 export type DeleteV1CategoriesDeleteIdParameterId = string;
 
 export interface DeleteV1CategoriesDeleteIdSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Category Deleted Successfully"} */
   data: {
     message: string;
@@ -245,14 +245,14 @@ export interface DeleteV1CategoriesDeleteIdSuccessfulResponse {
 }
 
 export interface DeleteV1CategoriesDeleteIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
 }
 
 export interface PostV1CategoriesAddSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Category Added Successfully"} */
   data: {
     message: string;
@@ -260,7 +260,7 @@ export interface PostV1CategoriesAddSuccessfulResponse {
 }
 
 export interface PostV1CategoriesAddErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -271,8 +271,8 @@ export type PostV1CategoriesAddRequestBody = ((object & object) & object) & {
 };
 
 export interface GetV1SubcategoriesGetSuccessfulResponse {
-  status: "success";
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"6655fa180f7cdd656c13bc32","name":"Sub Category Name","createdAt":"2024-05-28T15:36:56.120Z","updatedAt":"2024-05-28T15:36:56.120Z"}]} */
+  status: 'success';
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66e1c94e05c488e35b75d7b1","name":"Sub Category Name","createdAt":"2024-09-11T16:46:06.316Z","updatedAt":"2024-09-11T16:46:06.316Z"}]} */
   data: {
     message: string;
     data: {
@@ -294,7 +294,7 @@ export interface GetV1SubcategoriesGetSuccessfulResponse {
 }
 
 export interface GetV1SubcategoriesGetErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -303,7 +303,7 @@ export interface GetV1SubcategoriesGetErrorResponse {
 export type PutV1SubcategoriesIdParameterId = string;
 
 export interface PutV1SubcategoriesIdSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"SubCategories Added Successfully"} */
   data: {
     message: string;
@@ -311,7 +311,7 @@ export interface PutV1SubcategoriesIdSuccessfulResponse {
 }
 
 export interface PutV1SubcategoriesIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -324,7 +324,7 @@ export type PutV1SubcategoriesIdRequestBody = ((object & object) & object) & {
 export type DeleteV1SubcategoriesDeleteIdParameterId = string;
 
 export interface DeleteV1SubcategoriesDeleteIdSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Sub Category Deleted Successfully"} */
   data: {
     message: string;
@@ -332,14 +332,14 @@ export interface DeleteV1SubcategoriesDeleteIdSuccessfulResponse {
 }
 
 export interface DeleteV1SubcategoriesDeleteIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
 }
 
 export interface PostV1SubcategoriesAddSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Sub Category Added Successfully"} */
   data: {
     message: string;
@@ -347,7 +347,7 @@ export interface PostV1SubcategoriesAddSuccessfulResponse {
 }
 
 export interface PostV1SubcategoriesAddErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -378,8 +378,8 @@ export type GetV1ProjectsGetParameterSubCategory = string;
 export type GetV1ProjectsGetParameterTags = string;
 
 export interface GetV1ProjectsGetSuccessfulResponse {
-  status: "success";
-  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"6655fa180f7cdd656c13bc2c","title":"Sub Category Title","category":{"_id":"6655fa180f7cdd656c13bc2d","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-28T15:36:56.050Z","updatedAt":"2024-05-28T15:36:56.050Z"},"subCategory":{"_id":"6655fa180f7cdd656c13bc2e","name":"Sub Category Name","createdAt":"2024-05-28T15:36:56.050Z","updatedAt":"2024-05-28T15:36:56.050Z"},"image":"Image URL","link":"Project Link","tags":"Project Tags","createdAt":"2024-05-28T15:36:56.050Z","updatedAt":"2024-05-28T15:36:56.050Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
+  status: 'success';
+  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"66e1c94e05c488e35b75d7ab","title":"Sub Category Title","category":{"_id":"66e1c94e05c488e35b75d7ac","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-09-11T16:46:06.246Z","updatedAt":"2024-09-11T16:46:06.246Z"},"subCategory":{"_id":"66e1c94e05c488e35b75d7ad","name":"Sub Category Name","createdAt":"2024-09-11T16:46:06.246Z","updatedAt":"2024-09-11T16:46:06.246Z"},"image":"Image URL","link":"Project Link","tags":"Project Tags","createdAt":"2024-09-11T16:46:06.246Z","updatedAt":"2024-09-11T16:46:06.246Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
   data: {
     message: string;
     meta: {
@@ -472,14 +472,14 @@ export interface GetV1ProjectsGetSuccessfulResponse {
        */
       updatedAt?: string;
       figmaName?: string;
-      hasReviewed?: "yes" | "no";
+      hasReviewed?: 'yes' | 'no';
       figmaLink?: string;
     }[];
   };
 }
 
 export interface GetV1ProjectsGetErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -488,8 +488,8 @@ export interface GetV1ProjectsGetErrorResponse {
 export type GetV1ProjectsGetIdParameterId = string;
 
 export interface GetV1ProjectsGetIdSuccessfulResponse {
-  status: "success";
-  /** @example {"message":"Project Fetched Successfully","data":{"_id":"6655fa180f7cdd656c13bc2f","title":"Sub Category Title","category":{"_id":"6655fa180f7cdd656c13bc30","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-05-28T15:36:56.063Z","updatedAt":"2024-05-28T15:36:56.063Z"},"subCategory":{"_id":"6655fa180f7cdd656c13bc31","name":"Sub Category Name","createdAt":"2024-05-28T15:36:56.063Z","updatedAt":"2024-05-28T15:36:56.063Z"},"image":"Image URL","link":"Project Link","tags":"Tag 2","createdAt":"2024-05-28T15:36:56.063Z","updatedAt":"2024-05-28T15:36:56.063Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
+  status: 'success';
+  /** @example {"message":"Project Fetched Successfully","data":{"_id":"66e1c94e05c488e35b75d7ae","title":"Sub Category Title","category":{"_id":"66e1c94e05c488e35b75d7af","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-09-11T16:46:06.259Z","updatedAt":"2024-09-11T16:46:06.259Z"},"subCategory":{"_id":"66e1c94e05c488e35b75d7b0","name":"Sub Category Name","createdAt":"2024-09-11T16:46:06.259Z","updatedAt":"2024-09-11T16:46:06.259Z"},"image":"Image URL","link":"Project Link","tags":"Tag 2","createdAt":"2024-09-11T16:46:06.259Z","updatedAt":"2024-09-11T16:46:06.259Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
   data: {
     message: string;
     data: {
@@ -548,14 +548,14 @@ export interface GetV1ProjectsGetIdSuccessfulResponse {
        */
       updatedAt?: string;
       figmaName?: string;
-      hasReviewed?: "yes" | "no";
+      hasReviewed?: 'yes' | 'no';
       figmaLink?: string;
     };
   };
 }
 
 export interface GetV1ProjectsGetIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -564,7 +564,7 @@ export interface GetV1ProjectsGetIdErrorResponse {
 export type PutV1ProjectsIdParameterId = string;
 
 export interface PutV1ProjectsIdSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Sub Category Added Successfully"} */
   data: {
     message: string;
@@ -572,7 +572,7 @@ export interface PutV1ProjectsIdSuccessfulResponse {
 }
 
 export interface PutV1ProjectsIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -586,14 +586,14 @@ export type PutV1ProjectsIdRequestBody = ((object & object) & object) & {
   link?: string;
   tags?: string;
   figmaName?: string;
-  hasReviewed?: "yes" | "no";
+  hasReviewed?: 'yes' | 'no';
   figmaLink?: string;
 };
 
 export type DeleteV1ProjectsDeleteIdParameterId = string;
 
 export interface DeleteV1ProjectsDeleteIdSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Projects Deleted Successfully"} */
   data: {
     message: string;
@@ -601,14 +601,14 @@ export interface DeleteV1ProjectsDeleteIdSuccessfulResponse {
 }
 
 export interface DeleteV1ProjectsDeleteIdErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
 }
 
 export interface PostV1ProjectsAddSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Sub Category Added Successfully"} */
   data: {
     message: string;
@@ -616,7 +616,7 @@ export interface PostV1ProjectsAddSuccessfulResponse {
 }
 
 export interface PostV1ProjectsAddErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
@@ -630,12 +630,12 @@ export type PostV1ProjectsAddRequestBody = ((object & object) & object) & {
   link?: string;
   tags?: string;
   figmaName?: string;
-  hasReviewed?: "yes" | "no";
+  hasReviewed?: 'yes' | 'no';
   figmaLink?: string;
 };
 
 export interface GetV1ProjectsTagsSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Project Fetched Successfully","data":["Tag 1","Tag 2"]} */
   data: {
     message: string;
@@ -644,14 +644,14 @@ export interface GetV1ProjectsTagsSuccessfulResponse {
 }
 
 export interface GetV1ProjectsTagsErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
 }
 
 export interface GetV1ProjectsTotalSuccessfulResponse {
-  status: "success";
+  status: 'success';
   /** @example {"message":"Project Fetched Successfully","data":1} */
   data: {
     message: string;
@@ -667,16 +667,166 @@ export interface GetV1ProjectsTotalSuccessfulResponse {
 }
 
 export interface GetV1ProjectsTotalErrorResponse {
-  status: "error";
+  status: 'error';
   error: {
     message: string;
   };
 }
 
-export type QueryParamsType = Record<string | number, any>;
-export type ResponseFormat = keyof Omit<Body, "body" | "bodyUsed">;
+export enum GetV1ReviewsGetParameterType {
+  Video = 'video',
+  Text = 'text',
+}
 
-export interface FullRequestParams extends Omit<RequestInit, "body"> {
+export type GetV1ReviewsGetParameterClientName = string;
+
+export interface GetV1ReviewsGetSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66e1c94e05c488e35b75d7b5","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","createdAt":"2024-09-11T16:46:06.474Z","updatedAt":"2024-09-11T16:46:06.474Z"}]} */
+  data: {
+    message: string;
+    data: {
+      /** @format any */
+      _id?: any;
+      clientName: string;
+      videoUrl?: string;
+      clientPhoto?: string;
+      clientCountry?: string;
+      clientReview?: string;
+      figmaUrl?: string;
+      type: 'video' | 'text';
+      /**
+       * YYYY-MM-DDTHH:mm:ss.sssZ
+       * @format date-time
+       */
+      createdAt?: string;
+      /**
+       * YYYY-MM-DDTHH:mm:ss.sssZ
+       * @format date-time
+       */
+      updatedAt?: string;
+    }[];
+  };
+}
+
+export interface GetV1ReviewsGetErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export type GetV1ReviewsGetIdParameterId = string;
+
+export interface GetV1ReviewsGetIdSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Sub Categories Fetched Successfully","data":{"_id":"66e1c94e05c488e35b75d7b7","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","createdAt":"2024-09-11T16:46:06.482Z","updatedAt":"2024-09-11T16:46:06.482Z"}} */
+  data: {
+    message: string;
+    data: {
+      /** @format any */
+      _id?: any;
+      clientName: string;
+      videoUrl?: string;
+      clientPhoto?: string;
+      clientCountry?: string;
+      clientReview?: string;
+      figmaUrl?: string;
+      type: 'video' | 'text';
+      /**
+       * YYYY-MM-DDTHH:mm:ss.sssZ
+       * @format date-time
+       */
+      createdAt?: string;
+      /**
+       * YYYY-MM-DDTHH:mm:ss.sssZ
+       * @format date-time
+       */
+      updatedAt?: string;
+    };
+  };
+}
+
+export interface GetV1ReviewsGetIdErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+/** @format any */
+export type PutV1ReviewsIdParameterId = any;
+
+export interface PutV1ReviewsIdSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Review Updated Successfully"} */
+  data: {
+    message: string;
+  };
+}
+
+export interface PutV1ReviewsIdErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export type PutV1ReviewsIdRequestBody = ((object & object) & object) & {
+  clientName: string;
+  videoUrl?: string;
+  clientPhoto?: string;
+  clientCountry?: string;
+  clientReview?: string;
+  figmaUrl?: string;
+};
+
+export type DeleteV1ReviewsDeleteIdParameterId = string;
+
+export interface DeleteV1ReviewsDeleteIdSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Review Deleted Successfully"} */
+  data: {
+    message: string;
+  };
+}
+
+export interface DeleteV1ReviewsDeleteIdErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export interface PostV1ReviewsAddSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Review Added Successfully"} */
+  data: {
+    message: string;
+  };
+}
+
+export interface PostV1ReviewsAddErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export type PostV1ReviewsAddRequestBody = ((object & object) & object) & {
+  clientName: string;
+  videoUrl?: string;
+  clientPhoto?: string;
+  clientCountry?: string;
+  clientReview?: string;
+  figmaUrl?: string;
+  type: 'video' | 'text';
+};
+
+export type QueryParamsType = Record<string | number, any>;
+export type ResponseFormat = keyof Omit<Body, 'body' | 'bodyUsed'>;
+
+export interface FullRequestParams extends Omit<RequestInit, 'body'> {
   /** set parameter to `true` for call `securityWorker` for this request */
   secure?: boolean;
   /** request path */
@@ -695,12 +845,14 @@ export interface FullRequestParams extends Omit<RequestInit, "body"> {
   cancelToken?: CancelToken;
 }
 
-export type RequestParams = Omit<FullRequestParams, "body" | "method" | "query" | "path">;
+export type RequestParams = Omit<FullRequestParams, 'body' | 'method' | 'query' | 'path'>;
 
 export interface ApiConfig<SecurityDataType = unknown> {
   baseUrl?: string;
-  baseApiParams?: Omit<RequestParams, "baseUrl" | "cancelToken" | "signal">;
-  securityWorker?: (securityData: SecurityDataType | null) => Promise<RequestParams | void> | RequestParams | void;
+  baseApiParams?: Omit<RequestParams, 'baseUrl' | 'cancelToken' | 'signal'>;
+  securityWorker?: (
+    securityData: SecurityDataType | null
+  ) => Promise<RequestParams | void> | RequestParams | void;
   customFetch?: typeof fetch;
 }
 
@@ -712,24 +864,24 @@ export interface HttpResponse<D extends unknown, E extends unknown = unknown> ex
 type CancelToken = Symbol | string | number;
 
 export enum ContentType {
-  Json = "application/json",
-  FormData = "multipart/form-data",
-  UrlEncoded = "application/x-www-form-urlencoded",
-  Text = "text/plain",
+  Json = 'application/json',
+  FormData = 'multipart/form-data',
+  UrlEncoded = 'application/x-www-form-urlencoded',
+  Text = 'text/plain',
 }
 
 export class HttpClient<SecurityDataType = unknown> {
-  public baseUrl: string = "http://localhost:8000";
+  public baseUrl: string = 'http://localhost:8000';
   private securityData: SecurityDataType | null = null;
-  private securityWorker?: ApiConfig<SecurityDataType>["securityWorker"];
+  private securityWorker?: ApiConfig<SecurityDataType>['securityWorker'];
   private abortControllers = new Map<CancelToken, AbortController>();
   private customFetch = (...fetchParams: Parameters<typeof fetch>) => fetch(...fetchParams);
 
   private baseApiParams: RequestParams = {
-    credentials: "same-origin",
+    credentials: 'same-origin',
     headers: {},
-    redirect: "follow",
-    referrerPolicy: "no-referrer",
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
   };
 
   constructor(apiConfig: ApiConfig<SecurityDataType> = {}) {
@@ -742,7 +894,7 @@ export class HttpClient<SecurityDataType = unknown> {
 
   protected encodeQueryParam(key: string, value: any) {
     const encodedKey = encodeURIComponent(key);
-    return `${encodedKey}=${encodeURIComponent(typeof value === "number" ? value : `${value}`)}`;
+    return `${encodedKey}=${encodeURIComponent(typeof value === 'number' ? value : `${value}`)}`;
   }
 
   protected addQueryParam(query: QueryParamsType, key: string) {
@@ -751,26 +903,33 @@ export class HttpClient<SecurityDataType = unknown> {
 
   protected addArrayQueryParam(query: QueryParamsType, key: string) {
     const value = query[key];
-    return value.map((v: any) => this.encodeQueryParam(key, v)).join("&");
+    return value.map((v: any) => this.encodeQueryParam(key, v)).join('&');
   }
 
   protected toQueryString(rawQuery?: QueryParamsType): string {
     const query = rawQuery || {};
-    const keys = Object.keys(query).filter((key) => "undefined" !== typeof query[key]);
+    const keys = Object.keys(query).filter((key) => 'undefined' !== typeof query[key]);
     return keys
-      .map((key) => (Array.isArray(query[key]) ? this.addArrayQueryParam(query, key) : this.addQueryParam(query, key)))
-      .join("&");
+      .map((key) =>
+        Array.isArray(query[key])
+          ? this.addArrayQueryParam(query, key)
+          : this.addQueryParam(query, key)
+      )
+      .join('&');
   }
 
   protected addQueryParams(rawQuery?: QueryParamsType): string {
     const queryString = this.toQueryString(rawQuery);
-    return queryString ? `?${queryString}` : "";
+    return queryString ? `?${queryString}` : '';
   }
 
   private contentFormatters: Record<ContentType, (input: any) => any> = {
     [ContentType.Json]: (input: any) =>
-      input !== null && (typeof input === "object" || typeof input === "string") ? JSON.stringify(input) : input,
-    [ContentType.Text]: (input: any) => (input !== null && typeof input !== "string" ? JSON.stringify(input) : input),
+      input !== null && (typeof input === 'object' || typeof input === 'string')
+        ? JSON.stringify(input)
+        : input,
+    [ContentType.Text]: (input: any) =>
+      input !== null && typeof input !== 'string' ? JSON.stringify(input) : input,
     [ContentType.FormData]: (input: any) =>
       Object.keys(input || {}).reduce((formData, key) => {
         const property = input[key];
@@ -778,9 +937,9 @@ export class HttpClient<SecurityDataType = unknown> {
           key,
           property instanceof Blob
             ? property
-            : typeof property === "object" && property !== null
-            ? JSON.stringify(property)
-            : `${property}`,
+            : typeof property === 'object' && property !== null
+              ? JSON.stringify(property)
+              : `${property}`
         );
         return formData;
       }, new FormData()),
@@ -835,7 +994,7 @@ export class HttpClient<SecurityDataType = unknown> {
     ...params
   }: FullRequestParams): Promise<HttpResponse<T, E>> => {
     const secureParams =
-      ((typeof secure === "boolean" ? secure : this.baseApiParams.secure) &&
+      ((typeof secure === 'boolean' ? secure : this.baseApiParams.secure) &&
         this.securityWorker &&
         (await this.securityWorker(this.securityData))) ||
       {};
@@ -844,16 +1003,19 @@ export class HttpClient<SecurityDataType = unknown> {
     const payloadFormatter = this.contentFormatters[type || ContentType.Json];
     const responseFormat = format || requestParams.format;
 
-    return this.customFetch(`${baseUrl || this.baseUrl || ""}${path}${queryString ? `?${queryString}` : ""}`, {
-      ...requestParams,
-      headers: {
-        ...(requestParams.headers || {}),
-        ...(type && type !== ContentType.FormData ? { "Content-Type": type } : {}),
-      },
-      signal: (cancelToken ? this.createAbortSignal(cancelToken) : requestParams.signal) || null,
-      body: typeof body === "undefined" || body === null ? null : payloadFormatter(body),
-    }).then(async (response) => {
-      const r = response as HttpResponse<T, E>;
+    return this.customFetch(
+      `${baseUrl || this.baseUrl || ''}${path}${queryString ? `?${queryString}` : ''}`,
+      {
+        ...requestParams,
+        headers: {
+          ...(requestParams.headers || {}),
+          ...(type && type !== ContentType.FormData ? { 'Content-Type': type } : {}),
+        },
+        signal: (cancelToken ? this.createAbortSignal(cancelToken) : requestParams.signal) || null,
+        body: typeof body === 'undefined' || body === null ? null : payloadFormatter(body),
+      }
+    ).then(async (response) => {
+      const r = response.clone() as HttpResponse<T, E>;
       r.data = null as unknown as T;
       r.error = null as unknown as E;
 
@@ -901,10 +1063,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1AuthLogin: (data: PostV1AuthLoginRequestBody, params: RequestParams = {}) =>
       this.request<PostV1AuthLoginSuccessfulResponse, PostV1AuthLoginErrorResponse>({
         path: `/v1/auth/login`,
-        method: "POST",
+        method: 'POST',
         body: data,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -919,10 +1081,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1AuthRegister: (data: PostV1AuthRegisterRequestBody, params: RequestParams = {}) =>
       this.request<PostV1AuthRegisterSuccessfulResponse, PostV1AuthRegisterErrorResponse>({
         path: `/v1/auth/register`,
-        method: "POST",
+        method: 'POST',
         body: data,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -935,16 +1097,21 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request PUT:/v1/auth/password/change
      * @secure
      */
-    putV1AuthPasswordChange: (data: PutV1AuthPasswordChangeRequestBody, params: RequestParams = {}) =>
-      this.request<PutV1AuthPasswordChangeSuccessfulResponse, PutV1AuthPasswordChangeErrorResponse>({
-        path: `/v1/auth/password/change`,
-        method: "PUT",
-        body: data,
-        secure: true,
-        type: ContentType.Json,
-        format: "json",
-        ...params,
-      }),
+    putV1AuthPasswordChange: (
+      data: PutV1AuthPasswordChangeRequestBody,
+      params: RequestParams = {}
+    ) =>
+      this.request<PutV1AuthPasswordChangeSuccessfulResponse, PutV1AuthPasswordChangeErrorResponse>(
+        {
+          path: `/v1/auth/password/change`,
+          method: 'PUT',
+          body: data,
+          secure: true,
+          type: ContentType.Json,
+          format: 'json',
+          ...params,
+        }
+      ),
 
     /**
      * No description
@@ -957,10 +1124,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1FileUpload: (data: PostV1FileUploadRequestBody, params: RequestParams = {}) =>
       this.request<PostV1FileUploadSuccessfulResponse, PostV1FileUploadErrorResponse>({
         path: `/v1/file/upload`,
-        method: "POST",
+        method: 'POST',
         body: data,
         type: ContentType.FormData,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -975,10 +1142,10 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1FileDelete: (data: PostV1FileDeleteRequestBody, params: RequestParams = {}) =>
       this.request<PostV1FileDeleteSuccessfulResponse, PostV1FileDeleteErrorResponse>({
         path: `/v1/file/delete`,
-        method: "POST",
+        method: 'POST',
         body: data,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -993,8 +1160,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     getV1CategoriesGet: (params: RequestParams = {}) =>
       this.request<GetV1CategoriesGetSuccessfulResponse, GetV1CategoriesGetErrorResponse>({
         path: `/v1/categories/get`,
-        method: "GET",
-        format: "json",
+        method: 'GET',
+        format: 'json',
         ...params,
       }),
 
@@ -1009,8 +1176,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     getV1CategoriesGetId: (id: GetV1CategoriesGetIdParameterId, params: RequestParams = {}) =>
       this.request<GetV1CategoriesGetIdSuccessfulResponse, GetV1CategoriesGetIdErrorResponse>({
         path: `/v1/categories/get/${id}`,
-        method: "GET",
-        format: "json",
+        method: 'GET',
+        format: 'json',
         ...params,
       }),
 
@@ -1026,15 +1193,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     putV1CategoriesId: (
       id: PutV1CategoriesIdParameterId,
       data: PutV1CategoriesIdRequestBody,
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.request<PutV1CategoriesIdSuccessfulResponse, PutV1CategoriesIdErrorResponse>({
         path: `/v1/categories/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1047,12 +1214,18 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request DELETE:/v1/categories/delete/{id}
      * @secure
      */
-    deleteV1CategoriesDeleteId: (id: DeleteV1CategoriesDeleteIdParameterId, params: RequestParams = {}) =>
-      this.request<DeleteV1CategoriesDeleteIdSuccessfulResponse, DeleteV1CategoriesDeleteIdErrorResponse>({
+    deleteV1CategoriesDeleteId: (
+      id: DeleteV1CategoriesDeleteIdParameterId,
+      params: RequestParams = {}
+    ) =>
+      this.request<
+        DeleteV1CategoriesDeleteIdSuccessfulResponse,
+        DeleteV1CategoriesDeleteIdErrorResponse
+      >({
         path: `/v1/categories/delete/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1068,11 +1241,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1CategoriesAdd: (data: PostV1CategoriesAddRequestBody, params: RequestParams = {}) =>
       this.request<PostV1CategoriesAddSuccessfulResponse, PostV1CategoriesAddErrorResponse>({
         path: `/v1/categories/add`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1087,8 +1260,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     getV1SubcategoriesGet: (params: RequestParams = {}) =>
       this.request<GetV1SubcategoriesGetSuccessfulResponse, GetV1SubcategoriesGetErrorResponse>({
         path: `/v1/subcategories/get`,
-        method: "GET",
-        format: "json",
+        method: 'GET',
+        format: 'json',
         ...params,
       }),
 
@@ -1104,15 +1277,15 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     putV1SubcategoriesId: (
       id: PutV1SubcategoriesIdParameterId,
       data: PutV1SubcategoriesIdRequestBody,
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.request<PutV1SubcategoriesIdSuccessfulResponse, PutV1SubcategoriesIdErrorResponse>({
         path: `/v1/subcategories/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1125,12 +1298,18 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request DELETE:/v1/subcategories/delete/{id}
      * @secure
      */
-    deleteV1SubcategoriesDeleteId: (id: DeleteV1SubcategoriesDeleteIdParameterId, params: RequestParams = {}) =>
-      this.request<DeleteV1SubcategoriesDeleteIdSuccessfulResponse, DeleteV1SubcategoriesDeleteIdErrorResponse>({
+    deleteV1SubcategoriesDeleteId: (
+      id: DeleteV1SubcategoriesDeleteIdParameterId,
+      params: RequestParams = {}
+    ) =>
+      this.request<
+        DeleteV1SubcategoriesDeleteIdSuccessfulResponse,
+        DeleteV1SubcategoriesDeleteIdErrorResponse
+      >({
         path: `/v1/subcategories/delete/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1146,11 +1325,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1SubcategoriesAdd: (data: PostV1SubcategoriesAddRequestBody, params: RequestParams = {}) =>
       this.request<PostV1SubcategoriesAddSuccessfulResponse, PostV1SubcategoriesAddErrorResponse>({
         path: `/v1/subcategories/add`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1177,13 +1356,13 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         /** GET /v1/projects/get parameter */
         tags?: GetV1ProjectsGetParameterTags;
       },
-      params: RequestParams = {},
+      params: RequestParams = {}
     ) =>
       this.request<GetV1ProjectsGetSuccessfulResponse, GetV1ProjectsGetErrorResponse>({
         path: `/v1/projects/get`,
-        method: "GET",
+        method: 'GET',
         query: query,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1198,8 +1377,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     getV1ProjectsGetId: (id: GetV1ProjectsGetIdParameterId, params: RequestParams = {}) =>
       this.request<GetV1ProjectsGetIdSuccessfulResponse, GetV1ProjectsGetIdErrorResponse>({
         path: `/v1/projects/get/${id}`,
-        method: "GET",
-        format: "json",
+        method: 'GET',
+        format: 'json',
         ...params,
       }),
 
@@ -1212,14 +1391,18 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request PUT:/v1/projects/{id}
      * @secure
      */
-    putV1ProjectsId: (id: PutV1ProjectsIdParameterId, data: PutV1ProjectsIdRequestBody, params: RequestParams = {}) =>
+    putV1ProjectsId: (
+      id: PutV1ProjectsIdParameterId,
+      data: PutV1ProjectsIdRequestBody,
+      params: RequestParams = {}
+    ) =>
       this.request<PutV1ProjectsIdSuccessfulResponse, PutV1ProjectsIdErrorResponse>({
         path: `/v1/projects/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1232,12 +1415,18 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
      * @request DELETE:/v1/projects/delete/{id}
      * @secure
      */
-    deleteV1ProjectsDeleteId: (id: DeleteV1ProjectsDeleteIdParameterId, params: RequestParams = {}) =>
-      this.request<DeleteV1ProjectsDeleteIdSuccessfulResponse, DeleteV1ProjectsDeleteIdErrorResponse>({
+    deleteV1ProjectsDeleteId: (
+      id: DeleteV1ProjectsDeleteIdParameterId,
+      params: RequestParams = {}
+    ) =>
+      this.request<
+        DeleteV1ProjectsDeleteIdSuccessfulResponse,
+        DeleteV1ProjectsDeleteIdErrorResponse
+      >({
         path: `/v1/projects/delete/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
         secure: true,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1253,11 +1442,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1ProjectsAdd: (data: PostV1ProjectsAddRequestBody, params: RequestParams = {}) =>
       this.request<PostV1ProjectsAddSuccessfulResponse, PostV1ProjectsAddErrorResponse>({
         path: `/v1/projects/add`,
-        method: "POST",
+        method: 'POST',
         body: data,
         secure: true,
         type: ContentType.Json,
-        format: "json",
+        format: 'json',
         ...params,
       }),
 
@@ -1272,8 +1461,8 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     getV1ProjectsTags: (params: RequestParams = {}) =>
       this.request<GetV1ProjectsTagsSuccessfulResponse, GetV1ProjectsTagsErrorResponse>({
         path: `/v1/projects/tags`,
-        method: "GET",
-        format: "json",
+        method: 'GET',
+        format: 'json',
         ...params,
       }),
 
@@ -1288,8 +1477,113 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     getV1ProjectsTotal: (params: RequestParams = {}) =>
       this.request<GetV1ProjectsTotalSuccessfulResponse, GetV1ProjectsTotalErrorResponse>({
         path: `/v1/projects/total`,
-        method: "GET",
-        format: "json",
+        method: 'GET',
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Reviews
+     * @name GetV1ReviewsGet
+     * @summary Get Reviews
+     * @request GET:/v1/reviews/get
+     */
+    getV1ReviewsGet: (
+      query?: {
+        /** GET /v1/reviews/get parameter */
+        type?: GetV1ReviewsGetParameterType;
+        /** GET /v1/reviews/get parameter */
+        clientName?: GetV1ReviewsGetParameterClientName;
+      },
+      params: RequestParams = {}
+    ) =>
+      this.request<GetV1ReviewsGetSuccessfulResponse, GetV1ReviewsGetErrorResponse>({
+        path: `/v1/reviews/get`,
+        method: 'GET',
+        query: query,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Reviews
+     * @name GetV1ReviewsGetId
+     * @summary Get Reviews
+     * @request GET:/v1/reviews/get/{id}
+     */
+    getV1ReviewsGetId: (id: GetV1ReviewsGetIdParameterId, params: RequestParams = {}) =>
+      this.request<GetV1ReviewsGetIdSuccessfulResponse, GetV1ReviewsGetIdErrorResponse>({
+        path: `/v1/reviews/get/${id}`,
+        method: 'GET',
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Reviews
+     * @name PutV1ReviewsId
+     * @summary Update Reviews
+     * @request PUT:/v1/reviews/{id}
+     * @secure
+     */
+    putV1ReviewsId: (
+      id: PutV1ReviewsIdParameterId,
+      data: PutV1ReviewsIdRequestBody,
+      params: RequestParams = {}
+    ) =>
+      this.request<PutV1ReviewsIdSuccessfulResponse, PutV1ReviewsIdErrorResponse>({
+        path: `/v1/reviews/${id}`,
+        method: 'PUT',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Reviews
+     * @name DeleteV1ReviewsDeleteId
+     * @summary Delete a Review
+     * @request DELETE:/v1/reviews/delete/{id}
+     * @secure
+     */
+    deleteV1ReviewsDeleteId: (id: DeleteV1ReviewsDeleteIdParameterId, params: RequestParams = {}) =>
+      this.request<DeleteV1ReviewsDeleteIdSuccessfulResponse, DeleteV1ReviewsDeleteIdErrorResponse>(
+        {
+          path: `/v1/reviews/delete/${id}`,
+          method: 'DELETE',
+          secure: true,
+          format: 'json',
+          ...params,
+        }
+      ),
+
+    /**
+     * No description
+     *
+     * @tags Reviews
+     * @name PostV1ReviewsAdd
+     * @summary Add Reviews
+     * @request POST:/v1/reviews/add
+     * @secure
+     */
+    postV1ReviewsAdd: (data: PostV1ReviewsAddRequestBody, params: RequestParams = {}) =>
+      this.request<PostV1ReviewsAddSuccessfulResponse, PostV1ReviewsAddErrorResponse>({
+        path: `/v1/reviews/add`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
         ...params,
       }),
   };
