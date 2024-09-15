@@ -23,7 +23,7 @@ const validators = z.object({
   clientPhoto: z.instanceof(File).optional(),
   clientCountry: z.string().optional(),
   clientReview: z.string().optional(),
-  figmaUrl: z.string().url().optional(),
+  figmaUrl: z.string().optional(),
 });
 
 type TFormValues = z.infer<typeof validators>;
