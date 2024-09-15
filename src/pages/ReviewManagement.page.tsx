@@ -8,7 +8,7 @@ import {
   useUpdateReviewMutation,
 } from '@/store/apis/reviews';
 import getFileFromUrl from '@/utils/getFileFromUrl';
-import { Button, FileInput, Text, TextInput } from '@mantine/core';
+import { Button, FileInput, Text, Textarea, TextInput } from '@mantine/core';
 import { useForm, zodResolver } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { useEffect } from 'react';
@@ -235,7 +235,7 @@ export default function ReviewManagementPage() {
         {
           // eslint-disable-next-line no-nested-ternary
           typeOfReview === 'text' ? (
-            <TextInput
+            <Textarea
               label="Client Review"
               placeholder="Client Review"
               value={formHandler.values.clientReview}
@@ -243,6 +243,7 @@ export default function ReviewManagementPage() {
                 formHandler.setFieldValue('clientReview', event.currentTarget.value)
               }
               error={formHandler.errors.clientReview}
+              rows={5}
             />
           ) : null
         }
