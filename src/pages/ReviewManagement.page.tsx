@@ -167,7 +167,7 @@ export default function ReviewManagementPage() {
     }
   };
 
-  const title = 'Project';
+  const title = 'Review';
 
   return (
     <div className="">
@@ -280,7 +280,7 @@ export default function ReviewManagementPage() {
           loading={isLoading}
           disabled={isLoading}
         >
-          {editable ? 'Update Project' : 'Create Project'}
+          {editable ? 'Update Review' : 'Create Review'}
         </Button>
       </form>
       <Loader isLoading={isLoading} />
