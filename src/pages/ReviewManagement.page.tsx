@@ -310,7 +310,7 @@ export default function ReviewManagementPage() {
           // eslint-disable-next-line no-nested-ternary
           typeOfReview === 'video' ? (
             <FileInput
-              label="Video Url"
+              label="Video thumbnail"
               placeholder="Select a thumbnail"
               value={formHandler.values.thumbnail}
               onChange={(file) => formHandler.setFieldValue('thumbnail', file as File)}
