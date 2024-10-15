@@ -11,7 +11,7 @@
 
 export interface PostV1AuthLoginSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"66e1c94d05c488e35b75d7aa","email":"example@xyz.abc","role":"user"}}} */
+  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"670e9e3f95c3efb65b7542d0","email":"example@xyz.abc","role":"user"}}} */
   data: {
     message: string;
     data: {
@@ -137,7 +137,7 @@ export type PostV1FileDeleteRequestBody = ((object & object) & object) & {
 
 export interface GetV1CategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"66e1c94e05c488e35b75d7b2","name":"Category Name","totalFiles":0,"createdAt":"2024-09-11T16:46:06.380Z","updatedAt":"2024-09-11T16:46:06.380Z"}]} */
+  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"670e9e3f95c3efb65b7542d8","name":"Category Name","totalFiles":0,"createdAt":"2024-10-15T16:54:23.902Z","updatedAt":"2024-10-15T16:54:23.902Z"}]} */
   data: {
     message: string;
     data: {
@@ -177,7 +177,7 @@ export type GetV1CategoriesGetIdParameterId = string;
 
 export interface GetV1CategoriesGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"66e1c94e05c488e35b75d7b4","name":"Category Name","totalFiles":0,"createdAt":"2024-09-11T16:46:06.386Z","updatedAt":"2024-09-11T16:46:06.386Z"}} */
+  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"670e9e3f95c3efb65b7542da","name":"Category Name","totalFiles":0,"createdAt":"2024-10-15T16:54:23.905Z","updatedAt":"2024-10-15T16:54:23.905Z"}} */
   data: {
     message: string;
     data: {
@@ -272,7 +272,7 @@ export type PostV1CategoriesAddRequestBody = ((object & object) & object) & {
 
 export interface GetV1SubcategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66e1c94e05c488e35b75d7b1","name":"Sub Category Name","createdAt":"2024-09-11T16:46:06.316Z","updatedAt":"2024-09-11T16:46:06.316Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"670e9e3f95c3efb65b7542d7","name":"Sub Category Name","createdAt":"2024-10-15T16:54:23.853Z","updatedAt":"2024-10-15T16:54:23.853Z"}]} */
   data: {
     message: string;
     data: {
@@ -379,7 +379,7 @@ export type GetV1ProjectsGetParameterTags = string;
 
 export interface GetV1ProjectsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"66e1c94e05c488e35b75d7ab","title":"Sub Category Title","category":{"_id":"66e1c94e05c488e35b75d7ac","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-09-11T16:46:06.246Z","updatedAt":"2024-09-11T16:46:06.246Z"},"subCategory":{"_id":"66e1c94e05c488e35b75d7ad","name":"Sub Category Name","createdAt":"2024-09-11T16:46:06.246Z","updatedAt":"2024-09-11T16:46:06.246Z"},"image":"Image URL","link":"Project Link","tags":"Project Tags","createdAt":"2024-09-11T16:46:06.246Z","updatedAt":"2024-09-11T16:46:06.246Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
+  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"670e9e3f95c3efb65b7542d1","title":"Sub Category Title","category":{"_id":"670e9e3f95c3efb65b7542d2","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-10-15T16:54:23.795Z","updatedAt":"2024-10-15T16:54:23.795Z"},"subCategory":{"_id":"670e9e3f95c3efb65b7542d3","name":"Sub Category Name","createdAt":"2024-10-15T16:54:23.795Z","updatedAt":"2024-10-15T16:54:23.795Z"},"image":"Image URL","link":"Project Link","tags":"Project Tags","createdAt":"2024-10-15T16:54:23.795Z","updatedAt":"2024-10-15T16:54:23.795Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
   data: {
     message: string;
     meta: {
@@ -489,7 +489,7 @@ export type GetV1ProjectsGetIdParameterId = string;
 
 export interface GetV1ProjectsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","data":{"_id":"66e1c94e05c488e35b75d7ae","title":"Sub Category Title","category":{"_id":"66e1c94e05c488e35b75d7af","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-09-11T16:46:06.259Z","updatedAt":"2024-09-11T16:46:06.259Z"},"subCategory":{"_id":"66e1c94e05c488e35b75d7b0","name":"Sub Category Name","createdAt":"2024-09-11T16:46:06.259Z","updatedAt":"2024-09-11T16:46:06.259Z"},"image":"Image URL","link":"Project Link","tags":"Tag 2","createdAt":"2024-09-11T16:46:06.259Z","updatedAt":"2024-09-11T16:46:06.259Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
+  /** @example {"message":"Project Fetched Successfully","data":{"_id":"670e9e3f95c3efb65b7542d4","title":"Sub Category Title","category":{"_id":"670e9e3f95c3efb65b7542d5","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-10-15T16:54:23.805Z","updatedAt":"2024-10-15T16:54:23.805Z"},"subCategory":{"_id":"670e9e3f95c3efb65b7542d6","name":"Sub Category Name","createdAt":"2024-10-15T16:54:23.805Z","updatedAt":"2024-10-15T16:54:23.805Z"},"image":"Image URL","link":"Project Link","tags":"Tag 2","createdAt":"2024-10-15T16:54:23.805Z","updatedAt":"2024-10-15T16:54:23.805Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
   data: {
     message: string;
     data: {
@@ -682,7 +682,7 @@ export type GetV1ReviewsGetParameterClientName = string;
 
 export interface GetV1ReviewsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"66e1c94e05c488e35b75d7b5","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","createdAt":"2024-09-11T16:46:06.474Z","updatedAt":"2024-09-11T16:46:06.474Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"670e9e3f95c3efb65b7542db","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","thumbnail":"Thumbnail","createdAt":"2024-10-15T16:54:23.981Z","updatedAt":"2024-10-15T16:54:23.981Z"}]} */
   data: {
     message: string;
     data: {
@@ -695,6 +695,7 @@ export interface GetV1ReviewsGetSuccessfulResponse {
       clientReview?: string;
       figmaUrl?: string;
       type: 'video' | 'text';
+      thumbnail?: string;
       /**
        * YYYY-MM-DDTHH:mm:ss.sssZ
        * @format date-time
@@ -720,7 +721,7 @@ export type GetV1ReviewsGetIdParameterId = string;
 
 export interface GetV1ReviewsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":{"_id":"66e1c94e05c488e35b75d7b7","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","createdAt":"2024-09-11T16:46:06.482Z","updatedAt":"2024-09-11T16:46:06.482Z"}} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":{"_id":"670e9e3f95c3efb65b7542dc","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","thumbnail":"Thumbnail","createdAt":"2024-10-15T16:54:23.988Z","updatedAt":"2024-10-15T16:54:23.988Z"}} */
   data: {
     message: string;
     data: {
@@ -733,6 +734,7 @@ export interface GetV1ReviewsGetIdSuccessfulResponse {
       clientReview?: string;
       figmaUrl?: string;
       type: 'video' | 'text';
+      thumbnail?: string;
       /**
        * YYYY-MM-DDTHH:mm:ss.sssZ
        * @format date-time
@@ -754,8 +756,7 @@ export interface GetV1ReviewsGetIdErrorResponse {
   };
 }
 
-/** @format any */
-export type PutV1ReviewsIdParameterId = any;
+export type PutV1ReviewsIdParameterId = string;
 
 export interface PutV1ReviewsIdSuccessfulResponse {
   status: 'success';
@@ -779,6 +780,7 @@ export type PutV1ReviewsIdRequestBody = ((object & object) & object) & {
   clientCountry?: string;
   clientReview?: string;
   figmaUrl?: string;
+  thumbnail?: string;
 };
 
 export type DeleteV1ReviewsDeleteIdParameterId = string;
@@ -821,7 +823,49 @@ export type PostV1ReviewsAddRequestBody = ((object & object) & object) & {
   clientReview?: string;
   figmaUrl?: string;
   type: 'video' | 'text';
+  thumbnail?: string;
 };
+
+export interface GetV1ReviewsSummarySuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Sub Categories Fetched Successfully","data":{"totalVideoReviews":10,"totalTextReviews":10,"totalReviews":20}} */
+  data: {
+    message: string;
+    data: {
+      /**
+       * @format double
+       * @min 5e-324
+       * @exclusiveMin false
+       * @max 1.7976931348623157e+308
+       * @exclusiveMax false
+       */
+      totalVideoReviews: number;
+      /**
+       * @format double
+       * @min 5e-324
+       * @exclusiveMin false
+       * @max 1.7976931348623157e+308
+       * @exclusiveMax false
+       */
+      totalTextReviews: number;
+      /**
+       * @format double
+       * @min 5e-324
+       * @exclusiveMin false
+       * @max 1.7976931348623157e+308
+       * @exclusiveMax false
+       */
+      totalReviews: number;
+    };
+  };
+}
+
+export interface GetV1ReviewsSummaryErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
 
 export type QueryParamsType = Record<string | number, any>;
 export type ResponseFormat = keyof Omit<Body, 'body' | 'bodyUsed'>;
@@ -1583,6 +1627,22 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
         body: data,
         secure: true,
         type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Reviews
+     * @name GetV1ReviewsSummary
+     * @summary Get Reviews
+     * @request GET:/v1/reviews/summary
+     */
+    getV1ReviewsSummary: (params: RequestParams = {}) =>
+      this.request<GetV1ReviewsSummarySuccessfulResponse, GetV1ReviewsSummaryErrorResponse>({
+        path: `/v1/reviews/summary`,
+        method: 'GET',
         format: 'json',
         ...params,
       }),

@@ -24,6 +24,7 @@ const validators = z.object({
   clientCountry: z.string().optional(),
   clientReview: z.string().optional(),
   figmaUrl: z.string().optional(),
+  thumbnail: z.instanceof(File).optional(),
 });
 
 type TFormValues = z.infer<typeof validators>;
@@ -53,6 +54,7 @@ export default function ReviewManagementPage() {
       clientCountry: 'US',
       clientReview: '',
       figmaUrl: '',
+      thumbnail: undefined,
     },
     validate: zodResolver(validators),
     validateInputOnBlur: true,
@@ -65,6 +67,14 @@ export default function ReviewManagementPage() {
       formData.append('files', values.clientPhoto as File);
       const img = await uploadFiles(formData).unwrap();
 
+      let thumbnail = undefined;
+
+      if (values.thumbnail) {
+        const thumbnailFormData = new FormData();
+        thumbnailFormData.append('files', values.thumbnail as File);
+        thumbnail = await uploadFiles(thumbnailFormData).unwrap();
+      }
+
       await addReviewReq({
         clientName: values.clientName,
         videoUrl: values.videoUrl,
@@ -73,6 +83,7 @@ export default function ReviewManagementPage() {
         clientReview: values.clientReview,
         figmaUrl: values.figmaUrl,
         type: typeOfReview === 'text' ? 'text' : 'video',
+        thumbnail: thumbnail?.data?.data?.[0]?.url,
       }).unwrap();
       notifications.show({
         title: 'Success',
@@ -98,6 +109,14 @@ export default function ReviewManagementPage() {
       formData.append('files', values.clientPhoto as File);
       const img = await uploadFiles(formData).unwrap();
 
+      let thumbnail = undefined;
+
+      if (values.thumbnail) {
+        const thumbnailFormData = new FormData();
+        thumbnailFormData.append('files', values.thumbnail as File);
+        thumbnail = await uploadFiles(thumbnailFormData).unwrap();
+      }
+
       await updateReview({
         clientName: values.clientName,
         videoUrl: values.videoUrl,
@@ -106,6 +125,7 @@ export default function ReviewManagementPage() {
         clientReview: values.clientReview,
         figmaUrl: values.figmaUrl,
         id,
+        thumbnail: thumbnail?.data?.data?.[0]?.url,
       }).unwrap();
       notifications.show({
         title: 'Success',
@@ -136,6 +156,18 @@ export default function ReviewManagementPage() {
         const image = res.data.data.clientPhoto
           ? await getFileFromUrl(res.data.data.clientPhoto, fileName ?? 'image')
           : undefined;
+
+        let thumbnail = undefined;
+
+        if (res.data.data.thumbnail) {
+          const thumbnailFileName = res.data.data.thumbnail.split('/').pop();
+          const thumbnailImage = await getFileFromUrl(
+            res.data.data.thumbnail,
+            thumbnailFileName ?? 'thumbnail'
+          );
+          thumbnail = thumbnailImage;
+        }
+
         formHandler.setValues({
           clientName: res.data.data.clientName,
           videoUrl: res.data.data.videoUrl,
@@ -143,6 +175,7 @@ export default function ReviewManagementPage() {
           clientCountry: res.data.data.clientCountry,
           clientReview: res.data.data.clientReview,
           figmaUrl: res.data.data.figmaUrl,
+          thumbnail,
         });
       } catch (error) {
         notifications.show({
@@ -270,6 +303,18 @@ export default function ReviewManagementPage() {
               value={formHandler.values.videoUrl}
               onChange={(event) => formHandler.setFieldValue('videoUrl', event.currentTarget.value)}
               error={formHandler.errors.videoUrl}
+            />
+          ) : null
+        }
+        {
+          // eslint-disable-next-line no-nested-ternary
+          typeOfReview === 'video' ? (
+            <FileInput
+              label="Video Url"
+              placeholder="Select a thumbnail"
+              value={formHandler.values.thumbnail}
+              onChange={(file) => formHandler.setFieldValue('thumbnail', file as File)}
+              error={formHandler.errors.thumbnail}
             />
           ) : null
         }
