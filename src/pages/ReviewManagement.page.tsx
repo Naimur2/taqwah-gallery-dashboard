@@ -67,7 +67,7 @@ export default function ReviewManagementPage() {
       formData.append('files', values.clientPhoto as File);
       const img = await uploadFiles(formData).unwrap();
 
-      let thumbnail = undefined;
+      let thumbnail;
 
       if (values.thumbnail) {
         const thumbnailFormData = new FormData();
@@ -157,7 +157,7 @@ export default function ReviewManagementPage() {
           ? await getFileFromUrl(res.data.data.clientPhoto, fileName ?? 'image')
           : undefined;
 
-        let thumbnail = undefined;
+        let thumbnail;
 
         if (res.data.data.thumbnail) {
           const thumbnailFileName = res.data.data.thumbnail.split('/').pop();
