@@ -4,6 +4,8 @@ import {
   GetV1CategoriesGetSuccessfulResponse,
   PostV1CategoriesAddRequestBody,
   PostV1CategoriesAddSuccessfulResponse,
+  PostV1CategoriesUpdateSequenceErrorResponse,
+  PostV1CategoriesUpdateSequenceRequestBody,
   PutV1CategoriesIdRequestBody,
   PutV1CategoriesIdSuccessfulResponse,
 } from '@/store/api';
@@ -44,6 +46,17 @@ export const categoriesApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['categories', 'projects'],
     }),
+    updateCategoriesSequnce: builder.mutation<
+      PostV1CategoriesUpdateSequenceErrorResponse,
+      PostV1CategoriesUpdateSequenceRequestBody
+    >({
+      query: (body) => ({
+        url: 'categories/update/sequence',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['categories'],
+    }),
   }),
 });
 
@@ -52,4 +65,5 @@ export const {
   useAddCategoriesMutation,
   useUpdateCategoriesMutation,
   useDeleteCategoriesMutation,
+  useUpdateCategoriesSequnceMutation,
 } = categoriesApiSlice;

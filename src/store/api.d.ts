@@ -1,5 +1,6 @@
 /* eslint-disable */
 /* tslint:disable */
+// @ts-nocheck
 /*
  * ---------------------------------------------------------------
  * ## THIS FILE WAS GENERATED VIA SWAGGER-TYPESCRIPT-API        ##
@@ -11,7 +12,7 @@
 
 export interface PostV1AuthLoginSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"670e9e3f95c3efb65b7542d0","email":"example@xyz.abc","role":"user"}}} */
+  /** @example {"message":"Login Successful","data":{"accessToken":"access token","refreshToken":"refresh token","user":{"_id":"67eee5ad6495492fafe7f559","email":"example@xyz.abc","role":"user"}}} */
   data: {
     message: string;
     data: {
@@ -137,7 +138,7 @@ export type PostV1FileDeleteRequestBody = ((object & object) & object) & {
 
 export interface GetV1CategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"670e9e3f95c3efb65b7542d8","name":"Category Name","totalFiles":0,"createdAt":"2024-10-15T16:54:23.902Z","updatedAt":"2024-10-15T16:54:23.902Z"}]} */
+  /** @example {"message":"Categories Fetched Successfully","data":[{"_id":"67eee5ae6495492fafe7f561","name":"Category Name","totalFiles":0,"createdAt":"2025-04-03T19:46:54.117Z","updatedAt":"2025-04-03T19:46:54.117Z"}]} */
   data: {
     message: string;
     data: {
@@ -162,6 +163,14 @@ export interface GetV1CategoriesGetSuccessfulResponse {
        * @format date-time
        */
       updatedAt?: string;
+      /**
+       * @format double
+       * @min 5e-324
+       * @exclusiveMin false
+       * @max 1.7976931348623157e+308
+       * @exclusiveMax false
+       */
+      position?: number;
     }[];
   };
 }
@@ -177,7 +186,7 @@ export type GetV1CategoriesGetIdParameterId = string;
 
 export interface GetV1CategoriesGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"670e9e3f95c3efb65b7542da","name":"Category Name","totalFiles":0,"createdAt":"2024-10-15T16:54:23.905Z","updatedAt":"2024-10-15T16:54:23.905Z"}} */
+  /** @example {"message":"Categories Fetched Successfully","data":{"_id":"67eee5ae6495492fafe7f563","name":"Category Name","totalFiles":0,"createdAt":"2025-04-03T19:46:54.122Z","updatedAt":"2025-04-03T19:46:54.122Z"}} */
   data: {
     message: string;
     data: {
@@ -202,6 +211,14 @@ export interface GetV1CategoriesGetIdSuccessfulResponse {
        * @format date-time
        */
       updatedAt?: string;
+      /**
+       * @format double
+       * @min 5e-324
+       * @exclusiveMin false
+       * @max 1.7976931348623157e+308
+       * @exclusiveMax false
+       */
+      position?: number;
     };
   };
 }
@@ -270,9 +287,38 @@ export type PostV1CategoriesAddRequestBody = ((object & object) & object) & {
   name: string;
 };
 
+export interface PostV1CategoriesUpdateSequenceSuccessfulResponse {
+  status: 'success';
+  /** @example {"message":"Sequence Updated Successfully"} */
+  data: {
+    message: string;
+  };
+}
+
+export interface PostV1CategoriesUpdateSequenceErrorResponse {
+  status: 'error';
+  error: {
+    message: string;
+  };
+}
+
+export type PostV1CategoriesUpdateSequenceRequestBody = ((object & object) & object) & {
+  categories: {
+    id: string;
+    /**
+     * @format double
+     * @min 5e-324
+     * @exclusiveMin false
+     * @max 1.7976931348623157e+308
+     * @exclusiveMax false
+     */
+    position: number;
+  }[];
+};
+
 export interface GetV1SubcategoriesGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"670e9e3f95c3efb65b7542d7","name":"Sub Category Name","createdAt":"2024-10-15T16:54:23.853Z","updatedAt":"2024-10-15T16:54:23.853Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"67eee5ae6495492fafe7f560","name":"Sub Category Name","createdAt":"2025-04-03T19:46:54.041Z","updatedAt":"2025-04-03T19:46:54.041Z"}]} */
   data: {
     message: string;
     data: {
@@ -379,7 +425,7 @@ export type GetV1ProjectsGetParameterTags = string;
 
 export interface GetV1ProjectsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"670e9e3f95c3efb65b7542d1","title":"Sub Category Title","category":{"_id":"670e9e3f95c3efb65b7542d2","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-10-15T16:54:23.795Z","updatedAt":"2024-10-15T16:54:23.795Z"},"subCategory":{"_id":"670e9e3f95c3efb65b7542d3","name":"Sub Category Name","createdAt":"2024-10-15T16:54:23.795Z","updatedAt":"2024-10-15T16:54:23.795Z"},"image":"Image URL","link":"Project Link","tags":"Project Tags","createdAt":"2024-10-15T16:54:23.795Z","updatedAt":"2024-10-15T16:54:23.795Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
+  /** @example {"message":"Project Fetched Successfully","meta":{"total":1,"page":1,"limit":10,"totalPages":1},"data":[{"_id":"67eee5ad6495492fafe7f55a","title":"Sub Category Title","category":{"_id":"67eee5ad6495492fafe7f55b","name":"Sub Category Name","totalFiles":1,"createdAt":"2025-04-03T19:46:53.976Z","updatedAt":"2025-04-03T19:46:53.976Z"},"subCategory":{"_id":"67eee5ad6495492fafe7f55c","name":"Sub Category Name","createdAt":"2025-04-03T19:46:53.976Z","updatedAt":"2025-04-03T19:46:53.976Z"},"image":"Image URL","link":"Project Link","tags":"Project Tags","createdAt":"2025-04-03T19:46:53.976Z","updatedAt":"2025-04-03T19:46:53.976Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}]} */
   data: {
     message: string;
     meta: {
@@ -442,6 +488,14 @@ export interface GetV1ProjectsGetSuccessfulResponse {
          * @format date-time
          */
         updatedAt?: string;
+        /**
+         * @format double
+         * @min 5e-324
+         * @exclusiveMin false
+         * @max 1.7976931348623157e+308
+         * @exclusiveMax false
+         */
+        position?: number;
       };
       subCategory: {
         /** @format any */
@@ -489,7 +543,7 @@ export type GetV1ProjectsGetIdParameterId = string;
 
 export interface GetV1ProjectsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Project Fetched Successfully","data":{"_id":"670e9e3f95c3efb65b7542d4","title":"Sub Category Title","category":{"_id":"670e9e3f95c3efb65b7542d5","name":"Sub Category Name","totalFiles":1,"createdAt":"2024-10-15T16:54:23.805Z","updatedAt":"2024-10-15T16:54:23.805Z"},"subCategory":{"_id":"670e9e3f95c3efb65b7542d6","name":"Sub Category Name","createdAt":"2024-10-15T16:54:23.805Z","updatedAt":"2024-10-15T16:54:23.805Z"},"image":"Image URL","link":"Project Link","tags":"Tag 2","createdAt":"2024-10-15T16:54:23.805Z","updatedAt":"2024-10-15T16:54:23.805Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
+  /** @example {"message":"Project Fetched Successfully","data":{"_id":"67eee5ad6495492fafe7f55d","title":"Sub Category Title","category":{"_id":"67eee5ad6495492fafe7f55e","name":"Sub Category Name","totalFiles":1,"createdAt":"2025-04-03T19:46:53.989Z","updatedAt":"2025-04-03T19:46:53.989Z"},"subCategory":{"_id":"67eee5ad6495492fafe7f55f","name":"Sub Category Name","createdAt":"2025-04-03T19:46:53.989Z","updatedAt":"2025-04-03T19:46:53.989Z"},"image":"Image URL","link":"Project Link","tags":"Tag 2","createdAt":"2025-04-03T19:46:53.989Z","updatedAt":"2025-04-03T19:46:53.989Z","figmaName":"Figma Name","hasReviewed":"yes","figmaLink":"Figma Link"}} */
   data: {
     message: string;
     data: {
@@ -518,6 +572,14 @@ export interface GetV1ProjectsGetIdSuccessfulResponse {
          * @format date-time
          */
         updatedAt?: string;
+        /**
+         * @format double
+         * @min 5e-324
+         * @exclusiveMin false
+         * @max 1.7976931348623157e+308
+         * @exclusiveMax false
+         */
+        position?: number;
       };
       subCategory: {
         /** @format any */
@@ -682,7 +744,7 @@ export type GetV1ReviewsGetParameterClientName = string;
 
 export interface GetV1ReviewsGetSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"670e9e3f95c3efb65b7542db","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","thumbnail":"Thumbnail","createdAt":"2024-10-15T16:54:23.981Z","updatedAt":"2024-10-15T16:54:23.981Z"}]} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":[{"_id":"67eee5ae6495492fafe7f564","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","thumbnail":"Thumbnail","createdAt":"2025-04-03T19:46:54.214Z","updatedAt":"2025-04-03T19:46:54.214Z"}]} */
   data: {
     message: string;
     data: {
@@ -721,7 +783,7 @@ export type GetV1ReviewsGetIdParameterId = string;
 
 export interface GetV1ReviewsGetIdSuccessfulResponse {
   status: 'success';
-  /** @example {"message":"Sub Categories Fetched Successfully","data":{"_id":"670e9e3f95c3efb65b7542dc","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","thumbnail":"Thumbnail","createdAt":"2024-10-15T16:54:23.988Z","updatedAt":"2024-10-15T16:54:23.988Z"}} */
+  /** @example {"message":"Sub Categories Fetched Successfully","data":{"_id":"67eee5ae6495492fafe7f565","clientName":"Client Name","videoUrl":"Video URL","clientPhoto":"Client Photo","clientCountry":"Client Country","clientReview":"Client Review","figmaUrl":"Figma URL","type":"video","thumbnail":"Thumbnail","createdAt":"2025-04-03T19:46:54.223Z","updatedAt":"2025-04-03T19:46:54.223Z"}} */
   data: {
     message: string;
     data: {
@@ -1285,6 +1347,32 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
     postV1CategoriesAdd: (data: PostV1CategoriesAddRequestBody, params: RequestParams = {}) =>
       this.request<PostV1CategoriesAddSuccessfulResponse, PostV1CategoriesAddErrorResponse>({
         path: `/v1/categories/add`,
+        method: 'POST',
+        body: data,
+        secure: true,
+        type: ContentType.Json,
+        format: 'json',
+        ...params,
+      }),
+
+    /**
+     * No description
+     *
+     * @tags Categories
+     * @name PostV1CategoriesUpdateSequence
+     * @summary Update Categories endpoint
+     * @request POST:/v1/categories/update/sequence
+     * @secure
+     */
+    postV1CategoriesUpdateSequence: (
+      data: PostV1CategoriesUpdateSequenceRequestBody,
+      params: RequestParams = {}
+    ) =>
+      this.request<
+        PostV1CategoriesUpdateSequenceSuccessfulResponse,
+        PostV1CategoriesUpdateSequenceErrorResponse
+      >({
+        path: `/v1/categories/update/sequence`,
         method: 'POST',
         body: data,
         secure: true,

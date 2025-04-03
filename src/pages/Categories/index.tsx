@@ -7,6 +7,7 @@ import { useGetCategoriesQuery } from '@/store/apis/categoris';
 import { Button, Text } from '@mantine/core';
 import { modals } from '@mantine/modals';
 import dayjs from 'dayjs';
+import CategoriesTable from './components/CategoriesTable';
 
 const columns: TTable<Required<Partial<TCategoriesColumn>>>[] = [
   {
@@ -16,6 +17,10 @@ const columns: TTable<Required<Partial<TCategoriesColumn>>>[] = [
   {
     label: 'Total Files',
     accessor: 'totalFiles',
+  },
+  {
+    label: 'Position',
+    accessor: 'position',
   },
   {
     label: 'Created At',
@@ -52,7 +57,11 @@ export default function CategoriesPage() {
           </div>
 
           {/* @ts-ignore */}
-          <TableComponent columns={columns} data={data?.data?.data ?? []} />
+          <CategoriesTable
+            columns={columns}
+            data={(data?.data?.data as any) ?? []}
+            key={data?.data?.data?.length}
+          />
         </div>
       </section>
 

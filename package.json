@@ -22,6 +22,7 @@
     "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
+    "@hello-pangea/dnd": "^18.0.1",
     "@mantine/core": "^7.4.0",
     "@mantine/dates": "^7.5.3",
     "@mantine/dropzone": "^7.5.3",

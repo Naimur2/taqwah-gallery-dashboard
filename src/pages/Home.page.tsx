@@ -90,7 +90,7 @@ export default function CategoriesPage() {
       <section>
         <div className="container mx-auto p-4  grid gap-8 ">
           <div className="flex flex-wrap justify-between items-center">
-            <Text className="font-bold text-base md:text-lg xl:text-2xl">Manage Categories</Text>
+            <Text className="font-bold text-base md:text-lg xl:text-2xl">Manage Projects</Text>
             <Button
               className="bg-gray-800 text-white"
               onClick={() => {

@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 import BaseLayout from './layouts';
 
-import CategoriesPage from './pages/Categories.page';
+import CategoriesPage from './pages/Categories';
 import CreateBlog from './pages/CreateProject.page';
 import HomePage from './pages/Home.page';
 import LoginPage from './pages/Login.page';
