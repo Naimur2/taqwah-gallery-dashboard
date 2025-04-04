@@ -18,10 +18,10 @@ const columns: TTable<Required<Partial<TCategoriesColumn>>>[] = [
     label: 'Total Files',
     accessor: 'totalFiles',
   },
-  {
+  /*   {
     label: 'Position',
     accessor: 'position',
-  },
+  }, */
   {
     label: 'Created At',
     component: (row) => dayjs(row.createdAt).format('DD MMM YYYY'),
