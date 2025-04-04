@@ -63,9 +63,14 @@ function CategoriesTable<T extends object>({
       {(provided, snapshot) => (
         <Table.Tr
           ref={provided.innerRef}
+          styles={{
+            tr: {
+              '--columns-count': columns.length,
+            },
+          }}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
-          className={cn({
+          className={cn('grid grid-cols-[repeat(var(--columns-count),1fr)] items-center', {
             'bg-white hover:bg-gray-50': !snapshot.isDragging,
             'bg-gray-100': snapshot.isDragging,
           })}
@@ -114,7 +119,7 @@ function CategoriesTable<T extends object>({
             }));
 
             try {
-              await updateCategoriesSequence({
+              const res = await updateCategoriesSequence({
                 categories: updatedWithPositions.map((item) => ({
                   id: item._id,
                   position: item.position,
@@ -127,7 +132,14 @@ function CategoriesTable<T extends object>({
         >
           <Table className={cn(className)} style={style}>
             <Table.Thead>
-              <Table.Tr>
+              <Table.Tr
+                styles={{
+                  tr: {
+                    '--columns-count': columns.length,
+                  },
+                }}
+                className="grid grid-cols-[repeat(var(--columns-count),1fr)]"
+              >
                 {columns.map((item) => (
                   <Table.Th className="font-medium text-sm px-4 py-3" key={nanoid()}>
                     {item.label}
@@ -159,7 +171,7 @@ function CategoriesTable<T extends object>({
           )}
         </div>
       ) : null}
-      <Portal>
+      <Portal className="fixed inset-0 z-50">
         <LoadingOverlay visible={updateCategoriesSequenceRes.isLoading} />
       </Portal>
     </>
