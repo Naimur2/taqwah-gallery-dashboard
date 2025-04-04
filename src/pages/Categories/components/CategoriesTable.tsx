@@ -1,4 +1,4 @@
-import { LoadingOverlay, Table } from '@mantine/core';
+import { LoadingOverlay, Portal, Table } from '@mantine/core';
 import { nanoid } from '@reduxjs/toolkit';
 import { ClassArray, ClassValue } from 'clsx';
 import { CSSProperties, ReactNode } from 'react';
@@ -159,7 +159,9 @@ function CategoriesTable<T extends object>({
           )}
         </div>
       ) : null}
-      <LoadingOverlay visible={updateCategoriesSequenceRes.isLoading} />
+      <Portal>
+        <LoadingOverlay visible={updateCategoriesSequenceRes.isLoading} />
+      </Portal>
     </>
   );
 }
