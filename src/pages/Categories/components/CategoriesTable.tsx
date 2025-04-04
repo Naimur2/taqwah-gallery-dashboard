@@ -114,7 +114,7 @@ function CategoriesTable<T extends object>({
             }));
 
             try {
-              const res = await updateCategoriesSequence({
+              await updateCategoriesSequence({
                 categories: updatedWithPositions.map((item) => ({
                   id: item._id,
                   position: item.position,
