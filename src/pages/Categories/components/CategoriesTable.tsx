@@ -171,13 +171,15 @@ function CategoriesTable<T extends object>({
           )}
         </div>
       ) : null}
-      <Portal
-        className={cn('fixed inset-0 z-50', {
-          'pointer-events-none hidden': !updateCategoriesSequenceRes.isLoading,
-        })}
-      >
-        <LoadingOverlay visible={updateCategoriesSequenceRes.isLoading} />
-      </Portal>
+      {updateCategoriesSequenceRes.isLoading && (
+        <Portal
+          className={cn('fixed inset-0 z-50', {
+            'pointer-events-none hidden': !updateCategoriesSequenceRes.isLoading,
+          })}
+        >
+          <LoadingOverlay visible={updateCategoriesSequenceRes.isLoading} />
+        </Portal>
+      )}
     </>
   );
 }
