@@ -171,7 +171,11 @@ function CategoriesTable<T extends object>({
           )}
         </div>
       ) : null}
-      <Portal className="fixed inset-0 z-50">
+      <Portal
+        className={cn('fixed inset-0 z-50', {
+          'pointer-events-none hidden': !updateCategoriesSequenceRes.isLoading,
+        })}
+      >
         <LoadingOverlay visible={updateCategoriesSequenceRes.isLoading} />
       </Portal>
     </>
