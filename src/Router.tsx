@@ -72,5 +72,10 @@ const publicRouter = createHashRouter([
 export function Router() {
   const auth = useSelector(selectAuth);
 
-  return <RouterProvider router={auth?.accessToken ? privateRouter : publicRouter} />;
+  return (
+    <RouterProvider
+      router={auth?.accessToken ? privateRouter : publicRouter}
+      key={auth?.user?._id || '1'}
+    />
+  );
 }
