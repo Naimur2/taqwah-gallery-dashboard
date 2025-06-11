@@ -3,10 +3,10 @@ import { nanoid } from '@reduxjs/toolkit';
 import { ClassArray, ClassValue } from 'clsx';
 import { CSSProperties, ReactNode } from 'react';
 
+import { useListState } from '@mantine/hooks';
+import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import cn from '@/utils/cn';
 import getByKeyPath from '@/utils/getKeyByPath';
-import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
-import { useListState } from '@mantine/hooks';
 import { useUpdateCategoriesSequnceMutation } from '@/store/apis/categoris';
 
 type NestedKeyOf<ObjectType extends object> = {
