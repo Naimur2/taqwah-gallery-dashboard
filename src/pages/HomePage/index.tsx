@@ -6,17 +6,18 @@ import { useGetProjectsQuery } from '@/store/apis/projects';
 import { Button, Text } from '@mantine/core';
 import { RiLink } from 'react-icons/ri';
 import { useNavigate } from 'react-router-dom';
+import ProjectsTable from './components/ProjectsTable';
 
 const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
+  {
+    label: 'S.No',
+    accessor: 'position',
+    emptyValue: 'Not Available',
+  },
   {
     label: 'Image',
     component: (row) => <img src={row.image} alt={row.title} className="size-10 object-cover" />,
   },
-  // {
-  //   label: 'Title',
-  //   accessor: 'title',
-  //   emptyValue: 'Not Available',
-  // },
   {
     label: 'Title',
     accessor: 'figmaName',
@@ -76,12 +77,9 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
 ];
 
 export default function CategoriesPage() {
-  const { data, isLoading } = useGetProjectsQuery(
-    {},
-    {
-      refetchOnMountOrArgChange: true,
-    }
-  );
+  const { data, isLoading } = useGetProjectsQuery(undefined, {
+    refetchOnMountOrArgChange: true,
+  });
 
   const navigation = useNavigate();
 
@@ -102,7 +100,7 @@ export default function CategoriesPage() {
           </div>
 
           {/* @ts-ignore */}
-          <TableComponent columns={columns} data={data?.data?.data ?? []} />
+          <ProjectsTable columns={columns} data={data?.data?.data ?? []} />
         </div>
       </section>
 
