@@ -8,6 +8,8 @@ import {
   PostV1ProjectsAddSuccessfulResponse,
   PutV1ProjectsIdRequestBody,
   PutV1ProjectsIdSuccessfulResponse,
+  PutV1ProjectsUpdateSequenceRequestBody,
+  PutV1ProjectsUpdateSequenceSuccessfulResponse,
 } from '@/store/api';
 import { TPaginationWithSearch } from '@/store/types';
 import queryString from 'query-string';
@@ -15,8 +17,8 @@ import { apiSlice } from '..';
 
 export const projectsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getProjects: builder.query<GetV1ProjectsGetSuccessfulResponse, TPaginationWithSearch>({
-      query: (data) => `projects/get?${queryString.stringify(data)}`,
+    getProjects: builder.query<GetV1ProjectsGetSuccessfulResponse, TPaginationWithSearch | void>({
+      query: (data) => `projects/get?${queryString.stringify(data || {})}`,
       providesTags: ['projects'],
     }),
     getMoreProjects: builder.query<GetV1ProjectsGetSuccessfulResponse, TPaginationWithSearch>({
@@ -81,6 +83,17 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ['projects', 'categories'],
     }),
+    updateProjectSequence: builder.mutation<
+      PutV1ProjectsUpdateSequenceSuccessfulResponse,
+      PutV1ProjectsUpdateSequenceRequestBody
+    >({
+      query: (body) => ({
+        url: 'projects/update/sequence',
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['projects'],
+    }),
   }),
 });
 
@@ -93,4 +106,5 @@ export const {
   useGetSingleProjectsQuery,
   useLazyGetSingleProjectsQuery,
   useGetTagsQuery,
+  useUpdateProjectSequenceMutation,
 } = projectsApiSlice;

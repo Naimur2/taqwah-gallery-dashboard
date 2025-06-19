@@ -4,7 +4,7 @@ import BaseLayout from './layouts';
 
 import CategoriesPage from './pages/Categories';
 import CreateBlog from './pages/CreateProject.page';
-import HomePage from './pages/Home.page';
+import HomePage from './pages/HomePage';
 import LoginPage from './pages/Login.page';
 import NotFound from './pages/NotFound.page';
 import ReviewManagementPage from './pages/ReviewManagement.page';
