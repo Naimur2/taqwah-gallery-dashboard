@@ -8,7 +8,6 @@ import cn from '@/utils/cn';
 import getByKeyPath from '@/utils/getKeyByPath';
 import { DragDropContext, Draggable, Droppable } from '@hello-pangea/dnd';
 import { useListState } from '@mantine/hooks';
-import { GetV1ProjectsGetSuccessfulResponse } from '@/store/api';
 
 type NestedKeyOf<ObjectType extends object> = {
   [Key in keyof ObjectType & (string | number)]: ObjectType[Key] extends object
@@ -27,6 +26,7 @@ export type TTable<T extends object> = {
   textClassName?: ClassValue;
   textStyle?: CSSProperties;
   emptyValue?: string;
+  headerClassName?: ClassValue;
 };
 
 type TTableProps<
@@ -40,6 +40,7 @@ type TTableProps<
   columns: TTable<T>[];
   notFoundTitle?: string;
   notFoundDescription?: string;
+  headerClassName?: ClassValue;
 };
 
 function ProjectsTable<T extends object>({
@@ -49,6 +50,7 @@ function ProjectsTable<T extends object>({
   columns,
   notFoundTitle,
   notFoundDescription,
+  headerClassName,
 }: TTableProps<T & { position?: number; _id: string }>) {
   const [state, handlers] = useListState<T & { position?: number; _id: string }>([]);
 
@@ -142,10 +144,10 @@ function ProjectsTable<T extends object>({
                     '--columns-count': columns.length,
                   },
                 }}
-                className="grid grid-cols-[repeat(var(--columns-count),1fr)]"
+                className={cn("grid grid-cols-[repeat(var(--columns-count),1fr)]", headerClassName)}
               >
                 {columns.map((item) => (
-                  <Table.Th className="font-medium text-sm px-4 py-3" key={nanoid()}>
+                  <Table.Th className={cn("font-medium text-sm px-4 py-3", item.headerClassName)} key={nanoid()}>
                     {item.label}
                   </Table.Th>
                 ))}

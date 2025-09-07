@@ -23,6 +23,7 @@ export type TTable<T extends object> = {
   textClassName?: ClassValue;
   textStyle?: CSSProperties;
   emptyValue?: string;
+  headerClassName?: ClassValue;
 };
 
 type TTableProps<T extends object> = {

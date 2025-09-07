@@ -37,6 +37,7 @@ const columns: TTable<Required<Partial<TProjectColumn>>>[] = [
     label: 'Tags',
     component: (row) => row?.tags,
     className: 'min-w-[30rem]',
+    headerClassName: 'min-w-[30rem]',
   },
   {
     label: 'Project View Link',
